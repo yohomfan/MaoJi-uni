@@ -1058,7 +1058,7 @@
       "Step 6: In H5 mode, verify mock uses uni.setStorageSync wrapper",
       "Step 7: Take code snapshot as evidence"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "platform-adapter-auth",
@@ -1070,7 +1070,7 @@
       "Step 4: Verify mp-weixin implementation calls uni.login",
       "Step 5: Take code snapshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "platform-adapter-subscribe",
@@ -1082,7 +1082,7 @@
       "Step 4: Verify mp-weixin implementation calls uni.requestSubscribeMessage",
       "Step 5: Take code snapshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "platform-adapter-pay",
@@ -1094,7 +1094,7 @@
       "Step 4: Verify mp-weixin implementation calls uni.requestPayment",
       "Step 5: Take code snapshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "platform-adapter-storage",
@@ -1107,7 +1107,7 @@
       "Step 5: Verify mp-weixin implementation calls wx.cloud.uploadFile",
       "Step 6: Take code snapshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "cloud-functions",
@@ -1120,7 +1120,7 @@
       "Step 5: Note: execution not required for H5 verification, but code must be present",
       "Step 6: Take directory tree snapshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "state-management",
@@ -1134,7 +1134,7 @@
       "Step 6: Verify persistence via uni.setStorageSync wrapper (not raw localStorage)",
       "Step 7: Take code snapshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "comprehensive-flow",
