@@ -206,7 +206,7 @@
       "Step 13: Verify success message and return to pet list",
       "Step 14: Take screenshot showing new pet in list"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "pet-archive",
@@ -219,7 +219,7 @@
       "Step 5: Verify weight, neutered status, chip number are displayed",
       "Step 6: Take screenshot of pet detail page"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "pet-archive",
@@ -234,7 +234,7 @@
       "Step 7: Return to detail page and verify changes are shown",
       "Step 8: Take screenshot confirming updated information"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "pet-archive",
@@ -249,7 +249,7 @@
       "Step 7: Verify pet is soft-deleted (deletedAt set, records retained)",
       "Step 8: Take screenshot of empty list or remaining pets"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "pet-archive",
@@ -263,7 +263,7 @@
       "Step 6: Verify each card shows avatar, name, basic info",
       "Step 7: Take screenshot of pet list with multiple pets"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "pet-archive",
@@ -278,7 +278,7 @@
       "Step 7: In H5 build, verify image is stored via IndexedDB/object URL mock",
       "Step 8: Take screenshot showing uploaded avatar"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-vaccine",
@@ -296,7 +296,7 @@
       "Step 10: Verify record appears in vaccine list",
       "Step 11: Take screenshot of vaccine list with new record"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-vaccine",
@@ -311,7 +311,7 @@
       "Step 7: Verify custom vaccine appears in list",
       "Step 8: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-vaccine",
@@ -324,7 +324,7 @@
       "Step 5: Verify overdue vaccines are highlighted in red/warning color",
       "Step 6: Take screenshot of sorted vaccine list"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-vaccine",
@@ -337,7 +337,7 @@
       "Step 5: Verify record shows as completed in list",
       "Step 6: Take screenshot showing updated record"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-vaccine",
@@ -350,7 +350,7 @@
       "Step 5: Verify nextDate is updated to selected date",
       "Step 6: Take screenshot confirming postponement"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-vaccine",
@@ -367,7 +367,7 @@
       "Step 9: Verify nextDate updates to +365 days for annual booster",
       "Step 10: Take screenshot showing sequence"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-deworm",
@@ -383,7 +383,7 @@
       "Step 8: Verify record appears in deworm list",
       "Step 9: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-deworm",
@@ -398,7 +398,7 @@
       "Step 7: Verify record appears in list",
       "Step 8: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-deworm",
@@ -410,7 +410,7 @@
       "Step 4: Verify nextDate advances by cycle (30d for 体外, 90d for 体内)",
       "Step 5: Take screenshot showing updated record"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-deworm",
@@ -423,7 +423,7 @@
       "Step 5: Verify nextDate is updated",
       "Step 6: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-medical",
@@ -442,7 +442,7 @@
       "Step 11: Verify record appears in medical list",
       "Step 12: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-medical",
@@ -454,7 +454,7 @@
       "Step 4: Verify nextDate is computed as +180 days (not 365)",
       "Step 5: Take screenshot showing 180-day cycle for senior pet"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-medical",
@@ -468,7 +468,7 @@
       "Step 6: In H5 build, verify attachment loads from IndexedDB object URL",
       "Step 7: Take screenshot of preview"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-medicine",
@@ -485,7 +485,7 @@
       "Step 9: Verify record appears in current medications list",
       "Step 10: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-medicine",
@@ -498,7 +498,7 @@
       "Step 5: Verify expired medication is in history or hidden",
       "Step 6: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-weight",
@@ -514,7 +514,7 @@
       "Step 8: Verify entry appears in timeline list (newest first)",
       "Step 9: Take screenshot of weight timeline"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-weight",
@@ -527,7 +527,7 @@
       "Step 5: Verify each entry shows weight, date, and note (if present)",
       "Step 6: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-weight",
