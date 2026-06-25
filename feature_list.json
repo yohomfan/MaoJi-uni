@@ -1227,7 +1227,7 @@
       "Step 9: Verify photos are organized by date",
       "Step 10: Take screenshot of album grid"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "album-feature",
@@ -1243,6 +1243,6 @@
       "Step 8: Verify photo is removed from grid",
       "Step 9: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   }
 ]
