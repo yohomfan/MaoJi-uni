@@ -650,7 +650,7 @@
       "Step 5: Verify each article shows title, cover image, category",
       "Step 6: Take screenshot of knowledge list"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "knowledge",
@@ -664,7 +664,7 @@
       "Step 6: Verify only nutrition articles are shown",
       "Step 7: Take screenshot of filtered list"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "knowledge",
@@ -677,7 +677,7 @@
       "Step 5: Verify results highlight keyword match in title",
       "Step 6: Take screenshot of search results"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "knowledge",
@@ -691,7 +691,7 @@
       "Step 6: Verify images in content are displayed",
       "Step 7: Take screenshot of article detail"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "knowledge",
@@ -705,7 +705,7 @@
       "Step 6: Verify breed detail shows health traits, common diseases, care tips, weight ranges",
       "Step 7: Take screenshot of breed detail"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "knowledge",
@@ -719,7 +719,7 @@
       "Step 6: Verify breed is saved with pet",
       "Step 7: Take screenshot of breed picker"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-auth",
@@ -803,7 +803,7 @@
       "Step 6: Verify current VIP status is displayed (active/expired)",
       "Step 7: Take screenshot of VIP page"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-vip",
@@ -819,7 +819,7 @@
       "Step 8: Verify vipExpireAt is set (e.g., +30 days)",
       "Step 9: Take screenshot showing VIP active status"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-vip",
@@ -833,7 +833,7 @@
       "Step 6: Verify features show VIP upgrade prompt",
       "Step 7: Take screenshot showing gated feature"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-orders",
@@ -846,7 +846,7 @@
       "Step 5: Verify order shows type, amount, status, payment time",
       "Step 6: Take screenshot of orders list"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-subscribe",
@@ -888,7 +888,7 @@
       "Step 6: Tap an FAQ item and verify answer expands",
       "Step 7: Take screenshot of customer service page"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "reminder-logic",
