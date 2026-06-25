@@ -1,0 +1,342 @@
+<project_specification>
+  <project_name>毛叽 Maoji — 宠物健康管家（微信小程序 V1.0 · uni-app 版）</project_name>
+
+  <overview>
+    Build the 毛叽 Maoji WeChat Mini Program described in the original PRD
+    《毛叽 Maoji · 小程序 MVP V1.0 需求清单（uni-app 版）》, faithfully and
+    natively this time: a uni-app (Vue 3 + TS) project that compiles to a
+    real WeChat Mini Program (mp-weixin), backed by 微信云开发 (cloud
+    functions + cloud database).
+
+    Core value is the **健康主线 (health backbone)**: pet archive +
+    vaccination/deworming/medical/medicine/weight records + a unified
+    health calendar + automated 订阅消息 reminders + a knowledge library +
+    a paid health-membership tier.
+
+    **AI 写真 (AI portrait) is OUT OF SCOPE for V1.0.** Do NOT build the
+    style gallery, image generation, AI ordering, or 豆包即梦 integration.
+    The 玩法 tab ships only a "敬请期待 (coming soon)" PLACEHOLDER page so the
+    4-tab navigation stays intact; everything AI-related is deferred to V2.
+
+    Brand: 毛叽 Maoji (renamed in V1.2 from "毛孩子健康管家").
+    Slogan: "毛叽一声，健康同行"
+    Audience: 25-40-year-old urban pet owners (cats/dogs), first-time
+    owners prioritized.
+
+    ===================================================================
+    CRITICAL — DUAL BUILD TARGET (read before writing any code)
+    ===================================================================
+    The ship target is WeChat Mini Program (mp-weixin). BUT the autonomous
+    harness verifies every feature with a HEADLESS-CHROME SCREENSHOT, and a
+    mini program cannot run in a browser. uni-app solves this: ONE codebase
+    compiles to BOTH targets.
+
+      - DEV / VERIFY loop  -> `npm run dev:h5` -> uni-app H5 build served on
+        http://localhost:5173 -> harness drives it with Puppeteer and
+        screenshots it. THIS is how features are proven `passes: true`.
+      - SHIP target        -> `npm run build:mp-weixin` -> dist/build/mp-weixin
+        -> opened in WeChat DevTools, uploaded, submitted for review.
+
+    Therefore EVERY feature MUST render and be verifiable in the H5 build.
+    Anything that only exists in mp-weixin (real wx.cloud, real
+    requestSubscribeMessage, real WeChat Pay) MUST sit behind an adapter
+    that has a working H5 mock, so the H5 build is fully clickable and
+    screenshot-able end to end. A feature that "only works in the WeChat
+    simulator" is NOT considered passing.
+  </overview>
+
+  <technology_stack>
+    <frontend>
+      <framework>uni-app with Vue 3 (Composition API, &lt;script setup&gt;) + Vite + TypeScript</framework>
+      <ui_library>uView Plus (uni-app mobile UI library). Use uView Plus components for all UI; do not pull in browser-only libs (no Vant-web, no DOM-only widgets).</ui_library>
+      <state_management>Pinia (uni-app preset). Persist via uni.setStorageSync wrapper, NOT raw localStorage.</state_management>
+      <routing>uni-app pages.json (pages + tabBar + subPackages). No vue-router.</routing>
+      <styling>uni.scss design tokens + scoped SCSS. Use rpx units (mini-program responsive unit), not px, for layout.</styling>
+      <charts>For 体重曲线 use a uni-app-compatible chart (qiun-data-charts / uCharts) that renders on both H5 and mp-weixin canvas. Do NOT use echarts DOM mode.</charts>
+      <build_targets>H5 (dev/verify on :5173) AND mp-weixin (ship). Both must compile clean.</build_targets>
+    </frontend>
+    <backend>
+      微信云开发 (WeChat Cloud Development): cloud functions under
+      cloudfunctions/, cloud database collections, cloud storage for
+      images/PDFs. In the H5 verify build this backend is replaced by a
+      mock adapter (see platform_adapter). The cloud-function source code
+      still ships in the repo (Node.js), unit-testable in isolation, but is
+      NOT required to execute during H5 verification.
+    </backend>
+    <platform_adapter>
+      A single src/platform/* layer wraps every capability that differs
+      between H5 and mp-weixin. Each capability exports ONE interface with
+      two implementations selected via uni-app conditional compilation
+      (#ifdef MP-WEIXIN / #ifdef H5) or a runtime flag:
+
+        - data    : pet/health/knowledge/order CRUD
+                    mp-weixin -> wx.cloud.callFunction / database
+                    H5        -> mock store backed by uni.setStorageSync +
+                      IndexedDB for image blobs (seeded so screens are non-empty)
+        - auth    : login + openid
+                    mp-weixin -> uni.login -> cloud user-init -> openid
+                    H5        -> deterministic demo openid + "Demo 一键登录"
+        - subscribeMessage : 健康提醒 templates
+                    mp-weixin -> uni.requestSubscribeMessage
+                    H5        -> mock that records intent + shows a toast
+        - pay     : VIP membership purchase
+                    mp-weixin -> uni.requestPayment (via pay-order cloud fn)
+                    H5        -> mock success/fail flow
+        - storage : image/PDF upload
+                    mp-weixin -> wx.cloud.uploadFile
+                    H5        -> IndexedDB blob, object-URL preview
+
+      RULE: components/stores NEVER call wx.* or uni.cloud.* directly, and
+      NEVER touch localStorage/IndexedDB directly — always go through this
+      adapter. This keeps the H5 build runnable and the mp build shippable
+      from one source tree.
+    </platform_adapter>
+    <out_of_scope>
+      <item>社区 / UGC feed (晒娃、广场)</item>
+      <item>宠物医院 / 商家入驻</item>
+      <item>短视频写真</item>
+      <item>跨平台同步 / 原生 App build</item>
+      <item>AI 健康咨询问答 (V2 重点)</item>
+      <item>AI 写真全部功能 (风格商城/上传生成/付费/历史/豆包即梦) — V2，V1.0 仅留占位入口</item>
+    </out_of_scope>
+  </technology_stack>
+
+  <project_structure>
+    Follow the PRD layout (uni-app + cloudfunctions). Target tree:
+
+    maoji-uni/
+    - src/
+      - pages/                         (主包)
+        - index/index.vue              (首页: 健康日历 + 宠物卡片 + 今日待办)
+        - pet/{list,detail,edit}.vue   (宠物档案)
+        - health/{vaccine,deworm,medical,medicine,weight,calendar}.vue
+        - knowledge/{list,detail}.vue
+        - user/{profile,vip,orders}.vue
+      - pages-ai/placeholder.vue       (玩法 tab: 敬请期待 占位页, V1.0 唯一的 AI 相关页)
+      - components/{PetCard,HealthTodoCard,HealthCalendar,TimelineItem,EmptyState}.vue
+      - stores/{user,pet,health}.ts
+      - api/{pet,health,pay}.ts
+      - platform/{data,auth,subscribeMessage,pay,storage}.ts   (H5/mp adapter)
+      - utils/{request,upload,healthCycle,format}.ts
+      - static/                        (seed json + images)
+      - App.vue  main.ts  manifest.json  pages.json  uni.scss
+    - cloudfunctions/{pet-crud,health-crud,health-cron,pay-order,pay-notify,user-init}/
+    - package.json  vite.config.ts  tsconfig.json
+    - init.sh                          (MUST launch `npm run dev:h5` on :5173)
+
+    pages.json MUST declare a bottom tabBar with EXACTLY 4 tabs:
+      首页(index) · 档案(pet/list) · 玩法(pages-ai/placeholder) · 我的(user/profile)
+    The 玩法 tab is a 敬请期待 placeholder in V1.0 (AI 写真 deferred to V2).
+  </project_structure>
+
+  <features>
+    <line id="A" name="健康档案 (P0 主线)">
+      <feature id="pet-crud" priority="P0">
+        <name>宠物档案 CRUD（多只）</name>
+        <details>
+          - Create / edit / delete multiple pets (soft delete via deletedAt).
+          - Fields: avatar, name, species(cat/dog/other), breed, gender,
+            birthday, weight, isNeutered(yes/no/unknown), chipNo(optional).
+          - Pet list with PetCard; tap -> profile detail.
+          - Top-of-home 宠物切换器 when user has &gt;1 pet (horizontal avatars).
+          - Delete -> confirm modal; soft-deleted hidden but records retained.
+          - avatar via platform.storage (H5: IndexedDB blob + object URL).
+        </details>
+      </feature>
+      <feature id="growth-weight-timeline" priority="P0">
+        <name>成长记录 · 体重时间轴</name>
+        <details>
+          - Manual weight entry (value + date + optional note).
+          - Timeline list newest-first; chart of weight over time (uCharts).
+          - Empty state when no records.
+        </details>
+      </feature>
+      <feature id="album" priority="P1">
+        <name>相册</name>
+        <details>Upload daily photos, archived by date; grid view; preview; delete. via platform.storage.</details>
+      </feature>
+    </line>
+
+    <line id="B" name="健康管理 (P0 差异化核心)">
+      <feature id="vaccine" priority="P0">
+        <name>疫苗管理</name>
+        <details>
+          - Record: name, date, hospital, nextDate, note. Presets (狂犬/三联/
+            四联) + custom.
+          - List sorted by nextDate; detail with 完成/推迟/编辑.
+          - nextDate auto-computed by healthCycle; combo first-year 3-shot
+            sequence (21d intervals) then 365d; rabies 365d.
+          - Reminder intent registered at 7/3/1 days before nextDate.
+        </details>
+      </feature>
+      <feature id="deworm" priority="P0">
+        <name>驱虫管理</name>
+        <details>体内(90d)/体外(30d) records; auto next-date by cycle; list + detail + 完成/推迟; reminder 7/3/1d.</details>
+      </feature>
+      <feature id="medical" priority="P0">
+        <name>体检记录</name>
+        <details>Upload report image/PDF (platform.storage), hospital, conclusion, key metrics, date; annual cycle (365d, 180d if pet age >= 7y); attachment preview.</details>
+      </feature>
+      <feature id="health-calendar" priority="P0">
+        <name>健康日历</name>
+        <details>
+          - One screen of ALL 待办 (vaccine/deworm/medical/medicine) across pets.
+          - 今日待办 card (red emphasis), 逾期 list, near-30-day calendar grid
+            with category dots; tap a day -> bottom sheet of that day's items;
+            一键 完成/推迟 from the sheet.
+        </details>
+      </feature>
+      <feature id="medicine" priority="P1">
+        <name>用药记录</name>
+        <details>Current meds (name, dose, start/end), daily reminder intent.</details>
+      </feature>
+      <feature id="weight-curve" priority="P1">
+        <name>体重曲线 + 健康区间</name>
+        <details>Line chart with breed-standard healthy band overlay + range selectors.</details>
+      </feature>
+    </line>
+
+    <line id="C" name="健康知识 (P1 内容沉淀)">
+      <feature id="knowledge" priority="P1">
+        <name>知识库</name>
+        <details>Articles categorized 疫苗/驱虫/常见病/营养/急救; list + search + detail (markdown -> rich-text). Seed >= 20 articles in static/.</details>
+      </feature>
+      <feature id="breed-wiki" priority="P1">
+        <name>品种百科</name>
+        <details>Cat/dog breeds (>= 20 each) with health traits, common diseases, care tips, weight ranges. Seed in static/. Used by pet breed picker + weight band.</details>
+      </feature>
+    </line>
+
+    <line id="D" name="玩法 (AI 写真占位 · V2)">
+      <feature id="ai-placeholder" priority="P1">
+        <name>玩法 tab 占位页</name>
+        <details>
+          AI 写真 is deferred to V2. The 玩法 tab renders a single friendly
+          "敬请期待 / Coming Soon" placeholder page (illustration + one line of
+          copy, e.g. "AI 写真正在路上，先把毛孩子的健康管起来吧"). It must NOT
+          contain any gallery, upload, generation, payment, or history UI.
+          This is the ONLY AI-related screen in V1.0.
+        </details>
+      </feature>
+    </line>
+
+    <line id="E" name="用户与系统 (P0)">
+      <feature id="wx-login" priority="P0">
+        <name>微信登录</name>
+        <details>mp-weixin: uni.login -> user-init cloud fn -> bind openid. H5: "Demo 一键登录" -> deterministic demo openid. All via platform.auth.</details>
+      </feature>
+      <feature id="my-center" priority="P0">
+        <name>我的中心</name>
+        <details>Avatar, nickname, pet list, VIP status, orders entry, settings, about.</details>
+      </feature>
+      <feature id="subscribe-msg" priority="P0">
+        <name>订阅消息授权</name>
+        <details>Guide user to authorize 健康提醒 templates (疫苗/驱虫/体检/用药). mp-weixin: uni.requestSubscribeMessage. H5: mock dialog + toast, records consent. Idempotent re-prompt logic.</details>
+      </feature>
+      <feature id="vip-membership" priority="P0">
+        <name>健康会员</name>
+        <details>VIP tier (月度 19.9 含 高级提醒模板 + 体检解读 + 更多宠物档案位; AI 写真权益 V2 再加); purchase via platform.pay; vipExpireAt tracked; gated benefits.</details>
+      </feature>
+      <feature id="customer-service" priority="P1">
+        <name>客服入口</name>
+        <details>企业微信二维码 + FAQ (>= 30 entries seeded).</details>
+      </feature>
+      <feature id="privacy-consent" priority="P0">
+        <name>隐私协议 + 首启弹窗</name>
+        <details>First-launch blocking privacy modal; 用户协议 / 隐私政策; consent version tracking; 撤回授权. MUST block app use until accepted.</details>
+      </feature>
+    </line>
+  </features>
+
+  <cloud_database>
+    Collections (PRD section 5, AI tables deferred to V2) — model these in
+    the data adapter (mock for H5):
+      users(_openid, nickname, avatar, vipExpireAt, subscribeMsg{}, createTime)
+      pets(_openid, name, species, breed, gender, birthday, avatar, weight, isNeutered, chipNo, createTime)
+      health_records(petId, type[vaccine|deworm|medical|medicine|weight], date, nextDate, name, hospital, note, attachments[], remindStatus)
+      health_knowledge(title, category, cover, content, sort, enabled)
+      orders(_openid, type[vip], amount, status, payTime, outTradeNo)
+    Indexes: health_records(petId,nextDate); pets(_openid).
+    (ai_tasks / styles collections + freeAiQuota field are V2, do not model in V1.0.)
+  </cloud_database>
+
+  <key_algorithms>
+    <healthCycle>
+      utils/healthCycle.ts — computeNextDate(type, preset, fromDate, petAge):
+        狂犬疫苗 365d · 三联/四联 first-year 3-shot (21d) then 365d ·
+        体内驱虫 90d · 体外驱虫 30d · 年度体检 365d (180d if age >= 7y).
+      Pure, fully unit-tested (does not need a browser).
+    </healthCycle>
+    <reminder_pipeline>
+      health-cron cloud fn (mp): daily 09:00 scan health_records nextDate in
+      7/3/1 day window -> send 订阅消息 -> tap -> 健康日历 -> 完成/推迟.
+      In H5 verify: simulate by computing the same 待办 set client-side and
+      rendering it on the calendar / 今日待办 card.
+    </reminder_pipeline>
+  </key_algorithms>
+
+  <verification_protocol>
+    - init.sh MUST install deps and run `npm run dev:h5`, serving the H5
+      build at http://localhost:5173.
+    - The harness verifies each feature by navigating the H5 build with
+      Puppeteer and screenshotting; a feature is `passes: true` ONLY after a
+      screenshot (or console-log/vitest output) has been Read as evidence.
+    - ALSO verify the project still compiles for the ship target:
+      `npm run build:mp-weixin` must succeed without errors (run it at least
+      once per session; capture the build log as evidence). A feature that
+      breaks the mp-weixin compile is NOT passing even if H5 looks fine.
+    - Pure logic (healthCycle, cycle math, date utils) verified via vitest.
+    - NEVER use wx.* or localStorage directly in .vue/.ts outside platform/*.
+  </verification_protocol>
+
+  <uniapp_structure_requirements>
+    These are HARD, separately-verifiable acceptance gates. The initializer
+    MUST emit explicit feature_list.json test cases for EACH of them, and
+    they must be provable by grep/file-inspection or screenshot — not left
+    as implicit assumptions.
+
+    1. pages.json is the single routing source:
+       - Exists at src/pages.json; valid JSON.
+       - "pages" array registers EVERY page under pages/ (index, pet/list,
+         pet/detail, pet/edit, health/{vaccine,deworm,medical,medicine,
+         weight,calendar}, knowledge/{list,detail}, user/{profile,vip,orders})
+         and the 玩法 placeholder.
+       - "tabBar" declares EXACTLY 4 items in order 首页/档案/玩法/我的, each
+         pagePath pointing at a registered page.
+       - NO vue-router anywhere (grep: zero "vue-router" / "createRouter").
+
+    2. manifest.json is a real uni-app manifest:
+       - Exists at src/manifest.json; valid JSON.
+       - "vueVersion": "3".
+       - Has an "mp-weixin" section with an "appid" field (placeholder
+         "touristappid" or a TODO is fine) so build:mp-weixin can run.
+       - "h5" section present so dev:h5 serves on port 5173.
+
+    3. UI is built with uView Plus components, NOT browser libs:
+       - uView Plus is a dependency in package.json and registered in main.ts
+         (app.use(uviewPlus) or easycom configured in pages.json).
+       - Real screens use u-* components (u-button, u-cell, u-form, u-popup,
+         u-tabs, u-icon, etc.) for their primary widgets.
+       - grep proves ZERO usage of Vant ("vant"), element-plus, or other
+         web-only UI kits anywhere in src/.
+
+    4. Mini-program-correct primitives (grep-verifiable):
+       - Layout uses rpx units, not px, for sizing/spacing in styles.
+       - Charts use uCharts / qiun-data-charts on <canvas>, NOT DOM echarts
+         (grep: zero "echarts" import in components).
+       - Storage/persistence goes through uni.setStorageSync wrappers inside
+         src/platform/*, never raw localStorage.
+
+    A build/UI that renders fine in H5 but FAILS any of 1-4 is NOT passing:
+    it would not survive compilation to / behave correctly as a real WeChat
+    Mini Program, which is the actual ship target.
+  </uniapp_structure_requirements>
+
+  <design>
+    Mobile-first, mini-program look. Brand primary #FF8A65 (warm coral).
+    Rounded cards with soft shadow, generous spacing, >= 44px (~88rpx) touch
+    targets, clear empty states, friendly Chinese microcopy. 健康主线 is the
+    whole product in V1.0; the 玩法 tab is just a quiet placeholder. Use rpx
+    throughout.
+  </design>
+</project_specification>

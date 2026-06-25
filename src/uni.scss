@@ -1,0 +1,103 @@
+/**
+ * 毛叽 Maoji - Design Tokens & Global SCSS Variables
+ *
+ * This file contains the design system tokens for the Maoji app.
+ * It's automatically imported in all component styles via vite.config.ts.
+ */
+
+/* ==================== Brand Colors ==================== */
+$primary-color: #FF8A65; // Warm coral - brand primary
+$primary-light: #FFAB91;
+$primary-dark: #FF7043;
+
+$success-color: #4CAF50;
+$warning-color: #FFA726;
+$error-color: #EF5350;
+$info-color: #42A5F5;
+
+/* ==================== Neutral Colors ==================== */
+$text-primary: #333333;
+$text-secondary: #666666;
+$text-placeholder: #999999;
+$text-disabled: #CCCCCC;
+
+$bg-primary: #FFFFFF;
+$bg-secondary: #F8F8F8;
+$bg-disabled: #F5F5F5;
+
+$border-color: #E0E0E0;
+$divider-color: #EEEEEE;
+
+/* ==================== Spacing (rpx units) ==================== */
+$spacing-xs: 8rpx;
+$spacing-sm: 16rpx;
+$spacing-md: 24rpx;
+$spacing-lg: 32rpx;
+$spacing-xl: 48rpx;
+
+/* ==================== Border Radius ==================== */
+$radius-sm: 8rpx;
+$radius-md: 16rpx;
+$radius-lg: 24rpx;
+$radius-round: 999rpx;
+
+/* ==================== Font Sizes (rpx units) ==================== */
+$font-xs: 20rpx;
+$font-sm: 24rpx;
+$font-md: 28rpx;
+$font-lg: 32rpx;
+$font-xl: 36rpx;
+$font-xxl: 40rpx;
+
+/* ==================== Shadows ==================== */
+$shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+
+/* ==================== Z-Index ==================== */
+$z-popup: 999;
+$z-modal: 1000;
+$z-toast: 1001;
+
+/* ==================== Touch Target Size ==================== */
+$touch-target: 88rpx; // Minimum 44px for mobile
+
+/* ==================== CSS Variables (for use in <style> blocks) ==================== */
+:root {
+  /* Colors */
+  --primary-color: #{$primary-color};
+  --primary-light: #{$primary-light};
+  --primary-dark: #{$primary-dark};
+  --success-color: #{$success-color};
+  --warning-color: #{$warning-color};
+  --error-color: #{$error-color};
+  --info-color: #{$info-color};
+
+  /* Text */
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --text-placeholder: #{$text-placeholder};
+  --text-disabled: #{$text-disabled};
+
+  /* Backgrounds */
+  --bg-primary: #{$bg-primary};
+  --bg-secondary: #{$bg-secondary};
+  --bg-disabled: #{$bg-disabled};
+
+  /* Borders */
+  --border-color: #{$border-color};
+  --divider-color: #{$divider-color};
+
+  /* Spacing */
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+
+  /* Border radius */
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-round: #{$radius-round};
+}

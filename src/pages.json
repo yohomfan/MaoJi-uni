@@ -1,0 +1,182 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "毛叽",
+        "navigationBarBackgroundColor": "#FF8A65",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/pet/list",
+      "style": {
+        "navigationBarTitleText": "宠物档案",
+        "navigationBarBackgroundColor": "#FF8A65",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/pet/detail",
+      "style": {
+        "navigationBarTitleText": "宠物详情",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/pet/edit",
+      "style": {
+        "navigationBarTitleText": "编辑宠物",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/health/vaccine",
+      "style": {
+        "navigationBarTitleText": "疫苗管理",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/health/deworm",
+      "style": {
+        "navigationBarTitleText": "驱虫管理",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/health/medical",
+      "style": {
+        "navigationBarTitleText": "体检记录",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/health/medicine",
+      "style": {
+        "navigationBarTitleText": "用药记录",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/health/weight",
+      "style": {
+        "navigationBarTitleText": "体重管理",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/health/calendar",
+      "style": {
+        "navigationBarTitleText": "健康日历",
+        "navigationBarBackgroundColor": "#FF8A65",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/knowledge/list",
+      "style": {
+        "navigationBarTitleText": "健康知识",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/knowledge/detail",
+      "style": {
+        "navigationBarTitleText": "知识详情",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/user/profile",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationBarBackgroundColor": "#FF8A65",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/user/vip",
+      "style": {
+        "navigationBarTitleText": "健康会员",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/user/orders",
+      "style": {
+        "navigationBarTitleText": "我的订单",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages-ai/placeholder",
+      "style": {
+        "navigationBarTitleText": "玩法",
+        "navigationBarBackgroundColor": "#FF8A65",
+        "navigationBarTextStyle": "white"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "毛叽",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF8A65",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/pet/list",
+        "iconPath": "static/tabbar/pet.png",
+        "selectedIconPath": "static/tabbar/pet-active.png",
+        "text": "档案"
+      },
+      {
+        "pagePath": "pages-ai/placeholder",
+        "iconPath": "static/tabbar/fun.png",
+        "selectedIconPath": "static/tabbar/fun-active.png",
+        "text": "玩法"
+      },
+      {
+        "pagePath": "pages/user/profile",
+        "iconPath": "static/tabbar/user.png",
+        "selectedIconPath": "static/tabbar/user-active.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
