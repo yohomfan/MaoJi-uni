@@ -1,0 +1,36 @@
+4-Tab Navigation Bar - Evidence Log
+====================================
+Date: 2026-06-25
+Test: Verify 4-tab bottom navigation bar renders correctly with all tabs
+
+EVIDENCE FROM src/pages.json:
+
+1. TabBar configuration exists (lines 150-181):
+   {
+     "tabBar": {
+       "color": "#999999",
+       "selectedColor": "#FF8A65",
+       "borderStyle": "black",
+       "backgroundColor": "#FFFFFF",
+       "list": [ /* 4 items */ ]
+     }
+   }
+
+2. All 4 tabs are configured:
+   ✓ Tab 1: 首页 (Home) - path: pages/index/index
+   ✓ Tab 2: 档案 (Archive) - path: pages/pet/list
+   ✓ Tab 3: 玩法 (Fun/AI) - path: pages-ai/placeholder
+   ✓ Tab 4: 我的 (Profile) - path: pages/user/profile
+
+3. Each tab has required properties:
+   - pagePath: ✓ (all 4 tabs)
+   - iconPath: ✓ (all 4 tabs, static/tabbar/*.png)
+   - selectedIconPath: ✓ (all 4 tabs, *-active.png)
+   - text: ✓ (Chinese labels: 首页, 档案, 玩法, 我的)
+
+4. Visual styling configured:
+   - Normal color: #999999 (gray)
+   - Selected color: #FF8A65 (orange/coral)
+   - Background: white
+
+CONCLUSION: 4-tab navigation bar correctly configured ✓

@@ -1,0 +1,35 @@
+AI Placeholder Page - Evidence Log
+===================================
+Date: 2026-06-25
+Test: Verify 玩法 tab shows only a 'Coming Soon' placeholder
+
+EVIDENCE FROM src/pages-ai/placeholder.vue:
+
+1. Page template (lines 1-10):
+   - Shows "AI 写真正在路上" (AI portraits coming soon)
+   - Shows "先把毛孩子的健康管起来吧" (manage pet health first)
+   - Shows "敬请期待 V2.0" (stay tuned for V2.0)
+   - Uses illustration image: /static/images/ai-coming-soon.png
+
+2. Component script (lines 12-15):
+   ```typescript
+   // AI features are deferred to V2.0
+   // This is a placeholder page to maintain the 4-tab navigation
+   ```
+   - Explicit comment confirms AI deferral to V2.0
+   - No AI functionality implemented
+
+3. Verified NO AI features present:
+   ✓ No gallery UI
+   ✓ No upload functionality
+   ✓ No generation UI
+   ✓ No payment flow
+   ✓ No style selection
+   ✓ No AI service integration (豆包即梦)
+
+4. Styling (lines 17-58):
+   - Clean placeholder design with gradient background
+   - Centered content layout
+   - Friendly messaging
+
+CONCLUSION: AI placeholder correctly implements V1.0 spec ✓

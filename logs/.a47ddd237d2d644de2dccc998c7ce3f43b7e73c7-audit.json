@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Project\\github\\MaoJi-uni\\logs\\.a47ddd237d2d644de2dccc998c7ce3f43b7e73c7-audit.json",
+    "files": [
+        {
+            "date": 1782365875100,
+            "name": "D:\\Project\\github\\MaoJi-uni\\logs\\mcp-puppeteer-2026-06-25.log",
+            "hash": "aa088eda0542df9dd4d0a8495a09ef935fe170ea3139cfb879e088ca04e138af"
+        }
+    ],
+    "hashType": "sha256"
+}

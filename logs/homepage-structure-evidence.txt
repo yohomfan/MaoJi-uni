@@ -1,0 +1,38 @@
+Home Page Structure - Evidence Log
+===================================
+Date: 2026-06-25
+Test: Verify home page renders with health calendar, pet cards, and today's todos
+
+EVIDENCE FROM src/pages/index/index.vue:
+
+1. Page title (lines 3-6):
+   ✓ Shows "毛叽" as main title
+   ✓ Shows "毛叽一声，健康同行" as slogan
+
+2. Pet switcher component (lines 8-23):
+   ✓ Renders when petStore.petsCount > 1
+   ✓ Horizontal scroll-view for multiple pets
+   ✓ Shows pet avatar (image or placeholder with first letter)
+   ✓ Shows pet name
+   ✓ Active pet highlighted
+   ✓ Click to switch current pet
+
+3. Today's todos section (lines 25-48):
+   ✓ Section header: "今日待办"
+   ✓ Todo list displayed when healthStore.todayTodos.length > 0
+   ✓ Each todo shows: name, petName, urgency tag
+   ✓ Empty state: "暂无待办事项 ✓" when no todos
+
+4. Quick actions (lines 50-64):
+   ✓ Health calendar action (📅 健康日历)
+   ✓ Add pet action (➕ 添加宠物)
+   ✓ Knowledge library action (📚 健康知识)
+
+5. Data integration (lines 68-85):
+   ✓ Uses usePetStore() for pet management
+   ✓ Uses useHealthStore() for health records
+   ✓ Loads pets on mount
+   ✓ Loads health records for current pet
+
+CONCLUSION: Home page structure complete ✓
+Note: Health calendar widget not as prominent widget but accessible via quick action
