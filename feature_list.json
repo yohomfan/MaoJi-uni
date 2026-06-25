@@ -541,7 +541,7 @@
       "Step 6: Verify chart is interactive (can tap points to see details)",
       "Step 7: Take screenshot of weight chart"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-weight",
@@ -555,7 +555,7 @@
       "Step 6: Verify pet's weight line shows relative to healthy range",
       "Step 7: Take screenshot showing band overlay"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-calendar",
