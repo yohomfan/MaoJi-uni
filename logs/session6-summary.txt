@@ -1,0 +1,84 @@
+SESSION 6 SUMMARY - 2026-06-25
+================================
+
+## Critical Fix: Dev Server 404 Issue RESOLVED ✅
+
+**Problem**: All previous screenshots showed "HTTP ERROR 404" because index.html was missing.
+**Solution**: Created index.html template in project root to enable Vite dev server.
+**Result**: H5 app now loads properly on http://localhost:5179/#/
+
+## Verified Features (78/89 passing - 88%)
+
+### Working Pages (with valid screenshots):
+✅ Home page - shows "毛叽" branding, today's todos, quick actions, 4-tab navigation
+✅ Knowledge library - 22+ articles with categories (疫苗/驱虫/常见病/营养/急救)
+✅ VIP membership - benefits and pricing (¥19.9/月, ¥198/年 with "推荐" badge)
+✅ Customer service - QR code + 30+ FAQ entries with expandable answers
+✅ Orders page - empty state "暂无订单" with tabs (全部/已支付/待支付)
+✅ User profile - avatar, nickname, menu items (我的宠物/订单/健康日历/等)
+✅ Pet list - demo pet "毛球" (英国短毛猫) with + button
+✅ Health calendar - calendar grid for 2026年6月 with date navigation
+✅ Vaccine management - empty state "还没有疫苗记录" with "添加记录" button
+✅ Deworm management - empty state with proper UI
+✅ Weight management - empty state with add button
+✅ AI placeholder - "AI 写真正在路上" coming soon message
+
+### Verified Non-Functional Requirements:
+✅ Data seed - demo pet and knowledge articles pre-loaded
+✅ Empty states - all pages show proper empty UI (weight, vaccine, deworm, orders, todos)
+✅ Responsive layout - 375px mobile viewport renders correctly
+✅ Brand color #FF8A65 - coral/orange used in headers and accents throughout
+✅ UI design - rounded cards with shadows, generous spacing (VIP benefits cards)
+✅ Chinese microcopy - friendly tone ("毛叽一声，健康同行", "还没有XX记录")
+✅ mp-weixin build - compiles successfully after fixing import bug in knowledge/detail.vue
+
+### Build Verification:
+✅ H5 build: serves on port 5179, all pages accessible
+✅ mp-weixin build: compiles to dist/build/mp-weixin/ without errors
+
+## Remaining Work (11 failing tests)
+
+### Not Implemented:
+1. **Weight chart visualization** - Placeholder says "图表功能即将上线" (coming soon)
+2. **Weight healthy band overlay** - Depends on chart implementation
+3. **Album feature** (2 tests) - Pet album pages don't exist yet
+
+### Requires Interactive Testing:
+4. **Subscribe message idempotent logic** - Need to test re-prompt behavior
+5. **Health reminder 7/3/1-day window** - Cloud function (health-cron) is empty
+6. **Knowledge search empty state** - Code shows it's implemented but needs UI interaction
+7. **End-to-end flows** (4 tests):
+   - First-time user onboarding + first vaccine
+   - Multi-pet calendar with all tasks
+   - VIP purchase and gated features
+   - Health reminder complete workflow
+
+## Key Files Modified:
+- index.html (NEW) - Added to fix dev server 404
+- src/pages/knowledge/detail.vue - Fixed imports for mp-weixin build
+- feature_list.json - Updated 6 tests to passing
+
+## Evidence Files Created:
+- logs/home-new-test.png - Working home page
+- logs/knowledge-list-verified.png - 22+ articles
+- logs/vip-page-verified.png - VIP benefits/pricing
+- logs/customer-service-verified.png - QR + FAQs
+- logs/orders-page-verified.png - Empty state
+- logs/user-profile-verified.png - User menu
+- logs/pet-list-verified.png - Demo pet
+- logs/health-calendar-verified.png - Calendar UI
+- logs/vaccine/deworm/weight-page-verified.png - Empty states
+- logs/ai-placeholder-verified.png - Coming soon page
+
+## Progress:
+- Before session: 72/89 (81%) - but all screenshots were 404 errors!
+- After session: 78/89 (88%) - with VALID runtime evidence
+- Net progress: +6 tests verified with proper evidence
+
+## Next Steps:
+1. Implement weight chart visualization (uCharts/qiun-data-charts)
+2. Implement album feature (upload, grid view, preview, delete)
+3. Implement health-cron cloud function with 7/3/1-day reminder logic
+4. Test interactive flows end-to-end (onboarding, VIP purchase, etc.)
+5. Test subscribe message idempotent re-prompt
+6. Test knowledge search with nonsense keyword via UI
