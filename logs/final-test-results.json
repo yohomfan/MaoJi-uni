@@ -1,0 +1,41 @@
+[
+  {
+    "test": 1,
+    "passed": true,
+    "screenshot": "D:\\Project\\github\\MaoJi-uni\\logs\\test1-reminder-pipeline.png"
+  },
+  {
+    "test": 2,
+    "passed": true,
+    "screenshots": [
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test2-1-home-page.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test2-2-add-pet-form.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test2-3-pet-archive.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test2-4-user-profile.png"
+    ]
+  },
+  {
+    "test": 3,
+    "passed": true,
+    "screenshots": [
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test3-1-pet-archive.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test3-2-unified-calendar.png"
+    ]
+  },
+  {
+    "test": 4,
+    "passed": true,
+    "screenshots": [
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test4-1-user-profile.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test4-2-profile-details.png"
+    ]
+  },
+  {
+    "test": 5,
+    "passed": true,
+    "screenshots": [
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test5-1-home-tasks.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test5-2-health-calendar.png"
+    ]
+  }
+]

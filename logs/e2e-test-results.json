@@ -1,0 +1,36 @@
+[
+  {
+    "test": "reminder-pipeline",
+    "passed": false,
+    "error": "SyntaxError: Failed to execute 'querySelector' on 'Document': '.privacy-accept, button:has-text(\"同意\"), button:has-text(\"接受\")' is not a valid selector."
+  },
+  {
+    "test": "first-time-onboarding",
+    "passed": false,
+    "error": "SyntaxError: Failed to execute 'querySelector' on 'Document': 'button:has-text(\"同意\"), button:has-text(\"接受\"), .privacy-accept' is not a valid selector."
+  },
+  {
+    "test": "multi-pet-management",
+    "passed": true,
+    "screenshot": "D:\\Project\\github\\MaoJi-uni\\logs\\test3-multi-pet-unified-calendar.png",
+    "notes": "Unified calendar showing tasks from multiple pets"
+  },
+  {
+    "test": "vip-journey",
+    "passed": true,
+    "screenshots": [
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test4-vip-1-profile.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test4-vip-2-vip-page.png"
+    ],
+    "notes": "VIP page and benefits displayed"
+  },
+  {
+    "test": "reminder-workflow",
+    "passed": true,
+    "screenshots": [
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test5-reminder-1-home-tasks.png",
+      "D:\\Project\\github\\MaoJi-uni\\logs\\test5-reminder-2-calendar-view.png"
+    ],
+    "notes": "Health reminder workflow with today and upcoming tasks"
+  }
+]

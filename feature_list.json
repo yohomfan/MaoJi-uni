@@ -941,7 +941,7 @@
       "Step 7: Verify task shows '明天' with urgent styling",
       "Step 8: Take screenshot showing tiered reminder urgency"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "data-seed",
@@ -1154,7 +1154,7 @@
       "Step 12: Verify pet card and upcoming task are displayed",
       "Step 13: Take screenshot of complete home page showing user's first pet and health task"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "comprehensive-flow",
@@ -1173,7 +1173,7 @@
       "Step 11: Verify task updates across all views",
       "Step 12: Take screenshot of unified calendar with multi-pet tasks"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "comprehensive-flow",
@@ -1191,7 +1191,7 @@
       "Step 10: Verify VIP purchase order is recorded",
       "Step 11: Take screenshot showing VIP status and benefits"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "comprehensive-flow",
@@ -1210,7 +1210,7 @@
       "Step 11: Verify new nextDate appears on calendar",
       "Step 12: Take screenshots of before/after completion"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "album-feature",
