@@ -149,6 +149,14 @@
       }
     },
     {
+      "path": "pages/user/customer-service",
+      "style": {
+        "navigationBarTitleText": "客服中心",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
       "path": "pages-ai/placeholder",
       "style": {
         "navigationBarTitleText": "玩法",
