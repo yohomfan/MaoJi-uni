@@ -1,0 +1,933 @@
+{
+  "cats": [
+    {
+      "id": "cat_british_shorthair",
+      "name": "英国短毛猫",
+      "species": "cat",
+      "description": "英国短毛猫体型圆胖，四肢粗壮，性格温顺友善，是最受欢迎的宠物猫品种之一。",
+      "healthTraits": [
+        "容易肥胖，需控制饮食",
+        "可能患心肌肥厚症",
+        "需定期检查牙齿"
+      ],
+      "commonDiseases": ["心肌肥厚症", "肥胖症", "牙周病"],
+      "careTips": [
+        "定期梳理毛发，减少毛球",
+        "控制体重，避免过度喂食",
+        "提供足够的运动空间"
+      ],
+      "weightRange": {
+        "male": { "min": 4.5, "max": 8.0, "ideal": 6.0 },
+        "female": { "min": 3.5, "max": 6.5, "ideal": 4.5 }
+      },
+      "lifespan": "12-17年"
+    },
+    {
+      "id": "cat_american_shorthair",
+      "name": "美国短毛猫",
+      "species": "cat",
+      "description": "美国短毛猫体格强壮，性格温和，适应力强，是理想的家庭宠物。",
+      "healthTraits": [
+        "整体健康状况良好",
+        "可能有心脏病遗传倾向",
+        "注意口腔健康"
+      ],
+      "commonDiseases": ["心肌肥厚症", "牙周病"],
+      "careTips": [
+        "定期体检",
+        "均衡饮食",
+        "适度运动"
+      ],
+      "weightRange": {
+        "male": { "min": 4.5, "max": 7.5, "ideal": 5.5 },
+        "female": { "min": 3.5, "max": 5.5, "ideal": 4.0 }
+      },
+      "lifespan": "15-20年"
+    },
+    {
+      "id": "cat_persian",
+      "name": "波斯猫",
+      "species": "cat",
+      "description": "波斯猫拥有长而柔软的毛发和扁平的面部，性格文静优雅。",
+      "healthTraits": [
+        "呼吸道问题（扁平脸）",
+        "眼部分泌物多",
+        "需要频繁梳理"
+      ],
+      "commonDiseases": ["多囊肾病", "呼吸道疾病", "眼部感染"],
+      "careTips": [
+        "每天梳理毛发",
+        "清洁眼部和面部",
+        "定期检查肾功能"
+      ],
+      "weightRange": {
+        "male": { "min": 4.0, "max": 6.5, "ideal": 5.0 },
+        "female": { "min": 3.0, "max": 5.0, "ideal": 3.8 }
+      },
+      "lifespan": "12-17年"
+    },
+    {
+      "id": "cat_ragdoll",
+      "name": "布偶猫",
+      "species": "cat",
+      "description": "布偶猫体型大，毛发柔软，性格温顺亲人，有"仙女猫"之称。",
+      "healthTraits": [
+        "可能患心肌肥厚症",
+        "容易肥胖",
+        "需要大量互动"
+      ],
+      "commonDiseases": ["心肌肥厚症", "肥胖症", "泌尿系统疾病"],
+      "careTips": [
+        "定期梳理长毛",
+        "控制体重",
+        "心脏定期检查",
+        "提供充足饮水"
+      ],
+      "weightRange": {
+        "male": { "min": 6.0, "max": 9.0, "ideal": 7.5 },
+        "female": { "min": 4.5, "max": 6.8, "ideal": 5.5 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "cat_scottish_fold",
+      "name": "苏格兰折耳猫",
+      "species": "cat",
+      "description": "折耳猫以独特的折叠耳朵闻名，性格甜美温柔。",
+      "healthTraits": [
+        "遗传性骨骼疾病",
+        "关节问题",
+        "需要特别护理"
+      ],
+      "commonDiseases": ["骨软骨发育不良", "关节炎", "心脏病"],
+      "careTips": [
+        "避免高处跳跃",
+        "定期关节检查",
+        "提供软垫睡床",
+        "谨慎繁育"
+      ],
+      "weightRange": {
+        "male": { "min": 4.0, "max": 6.0, "ideal": 5.0 },
+        "female": { "min": 2.7, "max": 4.5, "ideal": 3.5 }
+      },
+      "lifespan": "11-14年"
+    },
+    {
+      "id": "cat_maine_coon",
+      "name": "缅因猫",
+      "species": "cat",
+      "description": "缅因猫是最大的家猫品种之一，性格友好，智商高。",
+      "healthTraits": [
+        "可能患心脏病",
+        "髋关节发育不良",
+        "需要大量活动空间"
+      ],
+      "commonDiseases": ["心肌肥厚症", "髋关节发育不良", "脊髓性肌肉萎缩症"],
+      "careTips": [
+        "定期梳理厚重毛发",
+        "心脏和髋关节筛查",
+        "提供大型猫爬架",
+        "充足的运动"
+      ],
+      "weightRange": {
+        "male": { "min": 6.0, "max": 11.0, "ideal": 8.0 },
+        "female": { "min": 4.0, "max": 7.0, "ideal": 5.5 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "cat_siamese",
+      "name": "暹罗猫",
+      "species": "cat",
+      "description": "暹罗猫身材修长，性格活泼，善于交流，喜欢与人互动。",
+      "healthTraits": [
+        "整体健康",
+        "可能有呼吸道问题",
+        "容易焦虑"
+      ],
+      "commonDiseases": ["呼吸道疾病", "牙周病", "淀粉样变性"],
+      "careTips": [
+        "提供充足互动",
+        "定期牙齿检查",
+        "避免应激环境"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.5, "ideal": 4.5 },
+        "female": { "min": 2.5, "max": 4.5, "ideal": 3.5 }
+      },
+      "lifespan": "15-20年"
+    },
+    {
+      "id": "cat_bengal",
+      "name": "孟加拉豹猫",
+      "species": "cat",
+      "description": "孟加拉豹猫拥有野性外观和活泼性格，需要大量运动。",
+      "healthTraits": [
+        "精力旺盛",
+        "需要大量活动",
+        "整体健康"
+      ],
+      "commonDiseases": ["心肌肥厚症", "进行性视网膜萎缩"],
+      "careTips": [
+        "提供充足运动空间",
+        "互动玩具",
+        "定期眼部检查"
+      ],
+      "weightRange": {
+        "male": { "min": 4.5, "max": 7.0, "ideal": 5.5 },
+        "female": { "min": 3.5, "max": 5.5, "ideal": 4.0 }
+      },
+      "lifespan": "12-16年"
+    },
+    {
+      "id": "cat_sphynx",
+      "name": "无毛猫",
+      "species": "cat",
+      "description": "无毛猫没有毛发覆盖，性格友好外向，需要特殊护理。",
+      "healthTraits": [
+        "皮肤需要定期清洁",
+        "对温度敏感",
+        "可能有心脏问题"
+      ],
+      "commonDiseases": ["心肌肥厚症", "皮肤问题", "呼吸道疾病"],
+      "careTips": [
+        "定期清洁皮肤",
+        "保持温暖",
+        "防晒保护",
+        "定期体检"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.5, "ideal": 4.5 },
+        "female": { "min": 2.5, "max": 4.0, "ideal": 3.2 }
+      },
+      "lifespan": "13-15年"
+    },
+    {
+      "id": "cat_russian_blue",
+      "name": "俄罗斯蓝猫",
+      "species": "cat",
+      "description": "俄罗斯蓝猫拥有银蓝色被毛和祖母绿眼睛，性格温和安静。",
+      "healthTraits": [
+        "整体健康良好",
+        "较少遗传疾病",
+        "敏感性格"
+      ],
+      "commonDiseases": ["膀胱结石", "肥胖症"],
+      "careTips": [
+        "保持安静环境",
+        "定期梳理",
+        "控制体重",
+        "充足饮水"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.5, "ideal": 4.5 },
+        "female": { "min": 2.5, "max": 4.0, "ideal": 3.2 }
+      },
+      "lifespan": "15-20年"
+    },
+    {
+      "id": "cat_abyssinian",
+      "name": "阿比西尼亚猫",
+      "species": "cat",
+      "description": "阿比西尼亚猫体态优雅，活泼好动，聪明好奇。",
+      "healthTraits": [
+        "精力充沛",
+        "可能有肾脏问题",
+        "牙齿需要护理"
+      ],
+      "commonDiseases": ["进行性视网膜萎缩", "肾脏淀粉样变性", "牙周病"],
+      "careTips": [
+        "提供攀爬空间",
+        "定期肾功能检查",
+        "牙齿护理",
+        "互动游戏"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.5, "ideal": 4.5 },
+        "female": { "min": 2.7, "max": 4.5, "ideal": 3.5 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "cat_exotic",
+      "name": "异国短毛猫",
+      "species": "cat",
+      "description": "异国短毛猫是波斯猫的短毛版本，性格温顺安静。",
+      "healthTraits": [
+        "呼吸道问题（扁平脸）",
+        "眼部问题",
+        "需要面部清洁"
+      ],
+      "commonDiseases": ["多囊肾病", "呼吸道疾病", "眼部感染"],
+      "careTips": [
+        "定期清洁面部",
+        "注意呼吸状况",
+        "定期肾功能检查",
+        "避免高温环境"
+      ],
+      "weightRange": {
+        "male": { "min": 4.5, "max": 7.0, "ideal": 5.5 },
+        "female": { "min": 3.0, "max": 5.5, "ideal": 4.0 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "cat_birman",
+      "name": "伯曼猫",
+      "species": "cat",
+      "description": "伯曼猫拥有深蓝色眼睛和白色手套状脚掌，性格温柔友好。",
+      "healthTraits": [
+        "整体健康",
+        "可能有心脏问题",
+        "需要梳理"
+      ],
+      "commonDiseases": ["心肌肥厚症", "肾脏疾病"],
+      "careTips": [
+        "定期梳理毛发",
+        "心脏检查",
+        "肾功能监测"
+      ],
+      "weightRange": {
+        "male": { "min": 4.5, "max": 6.5, "ideal": 5.5 },
+        "female": { "min": 3.0, "max": 4.5, "ideal": 3.8 }
+      },
+      "lifespan": "12-16年"
+    },
+    {
+      "id": "cat_norwegian_forest",
+      "name": "挪威森林猫",
+      "species": "cat",
+      "description": "挪威森林猫体型大，毛发厚重防水，性格独立友好。",
+      "healthTraits": [
+        "整体健壮",
+        "可能有心脏和关节问题",
+        "适应寒冷气候"
+      ],
+      "commonDiseases": ["心肌肥厚症", "髋关节发育不良", "糖原贮积病"],
+      "careTips": [
+        "定期梳理厚重毛发",
+        "心脏和髋关节筛查",
+        "提供攀爬空间"
+      ],
+      "weightRange": {
+        "male": { "min": 5.5, "max": 9.0, "ideal": 7.0 },
+        "female": { "min": 3.5, "max": 5.5, "ideal": 4.5 }
+      },
+      "lifespan": "14-16年"
+    },
+    {
+      "id": "cat_oriental",
+      "name": "东方短毛猫",
+      "species": "cat",
+      "description": "东方短毛猫身材修长，性格外向活泼，喜欢交流。",
+      "healthTraits": [
+        "活泼好动",
+        "可能有肝脏问题",
+        "需要陪伴"
+      ],
+      "commonDiseases": ["淀粉样变性", "进行性视网膜萎缩", "牙周病"],
+      "careTips": [
+        "提供充足互动",
+        "定期健康检查",
+        "牙齿护理"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.5, "ideal": 4.5 },
+        "female": { "min": 2.5, "max": 4.0, "ideal": 3.2 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "cat_devon_rex",
+      "name": "德文卷毛猫",
+      "species": "cat",
+      "description": "德文卷毛猫拥有卷曲的被毛和大耳朵，性格活泼亲人。",
+      "healthTraits": [
+        "被毛稀疏，需保暖",
+        "可能有心脏问题",
+        "皮肤护理"
+      ],
+      "commonDiseases": ["心肌肥厚症", "髋关节发育不良", "遗传性肌病"],
+      "careTips": [
+        "保持温暖",
+        "定期清洁耳朵",
+        "心脏检查"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 4.5, "ideal": 4.0 },
+        "female": { "min": 2.5, "max": 3.5, "ideal": 3.0 }
+      },
+      "lifespan": "9-15年"
+    },
+    {
+      "id": "cat_tonkinese",
+      "name": "东奇尼猫",
+      "species": "cat",
+      "description": "东奇尼猫是暹罗和缅甸猫的混合品种，性格友好活泼。",
+      "healthTraits": [
+        "整体健康",
+        "活泼好动",
+        "需要陪伴"
+      ],
+      "commonDiseases": ["牙周病", "淀粉样变性"],
+      "careTips": [
+        "提供互动玩具",
+        "定期牙齿检查",
+        "陪伴和关注"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.5, "ideal": 4.5 },
+        "female": { "min": 2.7, "max": 4.5, "ideal": 3.5 }
+      },
+      "lifespan": "15-18年"
+    },
+    {
+      "id": "cat_burmese",
+      "name": "缅甸猫",
+      "species": "cat",
+      "description": "缅甸猫体型中等，性格温顺亲人，喜欢与人互动。",
+      "healthTraits": [
+        "整体健康",
+        "可能有头部畸形",
+        "易肥胖"
+      ],
+      "commonDiseases": ["糖尿病", "低钾血症", "头部畸形"],
+      "careTips": [
+        "控制体重",
+        "定期健康检查",
+        "均衡饮食"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.5, "ideal": 4.5 },
+        "female": { "min": 2.7, "max": 4.0, "ideal": 3.2 }
+      },
+      "lifespan": "10-17年"
+    },
+    {
+      "id": "cat_cornish_rex",
+      "name": "柯尼斯卷毛猫",
+      "species": "cat",
+      "description": "柯尼斯卷毛猫被毛卷曲柔软，体型修长，性格活泼。",
+      "healthTraits": [
+        "被毛稀疏，怕冷",
+        "可能有心脏问题",
+        "皮肤敏感"
+      ],
+      "commonDiseases": ["心肌肥厚症", "髋关节发育不良", "皮肤过敏"],
+      "careTips": [
+        "保持温暖",
+        "定期皮肤检查",
+        "心脏监测"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 4.5, "ideal": 4.0 },
+        "female": { "min": 2.5, "max": 3.5, "ideal": 3.0 }
+      },
+      "lifespan": "11-15年"
+    },
+    {
+      "id": "cat_turkish_angora",
+      "name": "土耳其安哥拉猫",
+      "species": "cat",
+      "description": "土耳其安哥拉猫拥有丝质长毛，性格活泼聪明。",
+      "healthTraits": [
+        "白色猫可能耳聋",
+        "心脏问题",
+        "需要梳理"
+      ],
+      "commonDiseases": ["遗传性耳聋", "心肌肥厚症", "共济失调"],
+      "careTips": [
+        "白猫听力检查",
+        "定期梳理",
+        "心脏监测"
+      ],
+      "weightRange": {
+        "male": { "min": 3.5, "max": 5.0, "ideal": 4.2 },
+        "female": { "min": 2.5, "max": 4.0, "ideal": 3.2 }
+      },
+      "lifespan": "12-18年"
+    }
+  ],
+  "dogs": [
+    {
+      "id": "dog_labrador",
+      "name": "拉布拉多犬",
+      "species": "dog",
+      "size": "large",
+      "description": "拉布拉多犬性格温和友善，聪明易训练，是最受欢迎的家庭犬之一。",
+      "healthTraits": [
+        "容易肥胖",
+        "髋关节发育不良",
+        "需要大量运动"
+      ],
+      "commonDiseases": ["髋关节发育不良", "肘关节发育不良", "肥胖症", "耳部感染"],
+      "careTips": [
+        "控制饮食，防止肥胖",
+        "每天1-2小时运动",
+        "定期关节检查",
+        "清洁耳朵"
+      ],
+      "weightRange": {
+        "male": { "min": 29, "max": 36, "ideal": 32 },
+        "female": { "min": 25, "max": 32, "ideal": 28 }
+      },
+      "lifespan": "10-12年"
+    },
+    {
+      "id": "dog_golden_retriever",
+      "name": "金毛寻回犬",
+      "species": "dog",
+      "size": "large",
+      "description": "金毛犬性格温顺忠诚，智商高，是理想的家庭伴侣犬和工作犬。",
+      "healthTraits": [
+        "易患癌症",
+        "髋关节问题",
+        "心脏疾病"
+      ],
+      "commonDiseases": ["髋关节发育不良", "癌症", "心脏病", "皮肤过敏"],
+      "careTips": [
+        "定期梳理长毛",
+        "充足运动",
+        "定期体检（尤其是老年期）",
+        "关节保护"
+      ],
+      "weightRange": {
+        "male": { "min": 29, "max": 34, "ideal": 31 },
+        "female": { "min": 25, "max": 29, "ideal": 27 }
+      },
+      "lifespan": "10-12年"
+    },
+    {
+      "id": "dog_german_shepherd",
+      "name": "德国牧羊犬",
+      "species": "dog",
+      "size": "large",
+      "description": "德国牧羊犬聪明勇敢，工作能力强，忠诚护主。",
+      "healthTraits": [
+        "髋关节和肘关节问题",
+        "容易腹胀",
+        "皮肤敏感"
+      ],
+      "commonDiseases": ["髋关节发育不良", "肘关节发育不良", "胃扭转", "退行性脊髓病"],
+      "careTips": [
+        "关节保健",
+        "避免剧烈运动后立即进食",
+        "定期皮肤检查",
+        "智力训练"
+      ],
+      "weightRange": {
+        "male": { "min": 30, "max": 40, "ideal": 35 },
+        "female": { "min": 22, "max": 32, "ideal": 27 }
+      },
+      "lifespan": "9-13年"
+    },
+    {
+      "id": "dog_french_bulldog",
+      "name": "法国斗牛犬",
+      "species": "dog",
+      "size": "small",
+      "description": "法国斗牛犬小巧可爱，性格活泼亲人，适合城市饲养。",
+      "healthTraits": [
+        "短鼻犬，呼吸问题",
+        "对高温敏感",
+        "脊椎问题"
+      ],
+      "commonDiseases": ["短头颅综合症", "椎间盘突出", "皮肤褶皱感染", "髋关节发育不良"],
+      "careTips": [
+        "避免高温时段外出",
+        "控制剧烈运动",
+        "清洁面部褶皱",
+        "控制体重减轻脊椎负担"
+      ],
+      "weightRange": {
+        "male": { "min": 9, "max": 14, "ideal": 11 },
+        "female": { "min": 8, "max": 13, "ideal": 10 }
+      },
+      "lifespan": "10-12年"
+    },
+    {
+      "id": "dog_beagle",
+      "name": "比格犬",
+      "species": "dog",
+      "size": "medium",
+      "description": "比格犬活泼好动，嗅觉灵敏，性格温和友善。",
+      "healthTraits": [
+        "容易肥胖",
+        "耳部感染",
+        "癫痫倾向"
+      ],
+      "commonDiseases": ["肥胖症", "椎间盘突出", "耳部感染", "癫痫"],
+      "careTips": [
+        "控制饮食",
+        "充足运动",
+        "定期清洁耳朵",
+        "避免脊椎损伤"
+      ],
+      "weightRange": {
+        "male": { "min": 10, "max": 11, "ideal": 10.5 },
+        "female": { "min": 9, "max": 10, "ideal": 9.5 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "dog_poodle",
+      "name": "贵宾犬",
+      "species": "dog",
+      "size": "small",
+      "description": "贵宾犬聪明优雅，不易掉毛，适合过敏人群。",
+      "healthTraits": [
+        "牙齿问题",
+        "髋关节问题",
+        "眼部疾病"
+      ],
+      "commonDiseases": ["髋关节发育不良", "进行性视网膜萎缩", "牙周病", "癫痫"],
+      "careTips": [
+        "定期美容修剪",
+        "牙齿护理",
+        "眼部检查",
+        "智力训练"
+      ],
+      "weightRange": {
+        "male": { "min": 6, "max": 8, "ideal": 7 },
+        "female": { "min": 5, "max": 7, "ideal": 6 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "dog_chihuahua",
+      "name": "吉娃娃",
+      "species": "dog",
+      "size": "small",
+      "description": "吉娃娃是最小的犬种之一，警觉性高，忠诚护主。",
+      "healthTraits": [
+        "脆弱易受伤",
+        "牙齿问题",
+        "心脏瓣膜病"
+      ],
+      "commonDiseases": ["心脏瓣膜病", "牙周病", "髌骨脱位", "低血糖"],
+      "careTips": [
+        "保暖（怕冷）",
+        "定期牙齿护理",
+        "避免高处跳跃",
+        "心脏定期检查"
+      ],
+      "weightRange": {
+        "male": { "min": 1.5, "max": 3.0, "ideal": 2.2 },
+        "female": { "min": 1.5, "max": 3.0, "ideal": 2.0 }
+      },
+      "lifespan": "14-16年"
+    },
+    {
+      "id": "dog_shiba",
+      "name": "柴犬",
+      "species": "dog",
+      "size": "medium",
+      "description": "柴犬是日本犬种，性格独立忠诚，警觉性高。",
+      "healthTraits": [
+        "整体健康",
+        "可能有过敏",
+        "髋关节问题"
+      ],
+      "commonDiseases": ["髋关节发育不良", "髌骨脱位", "过敏性皮炎"],
+      "careTips": [
+        "定期梳理",
+        "社会化训练",
+        "关节保护",
+        "皮肤护理"
+      ],
+      "weightRange": {
+        "male": { "min": 8, "max": 11, "ideal": 9.5 },
+        "female": { "min": 7, "max": 9, "ideal": 8 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "dog_corgi",
+      "name": "柯基犬",
+      "species": "dog",
+      "size": "small",
+      "description": "柯基犬腿短身长，性格活泼友善，智商高。",
+      "healthTraits": [
+        "脊椎问题（长身短腿）",
+        "容易肥胖",
+        "髋关节问题"
+      ],
+      "commonDiseases": ["椎间盘突出", "髋关节发育不良", "进行性视网膜萎缩", "肥胖症"],
+      "careTips": [
+        "避免上下楼梯和跳跃",
+        "控制体重",
+        "适度运动",
+        "脊椎保护"
+      ],
+      "weightRange": {
+        "male": { "min": 12, "max": 14, "ideal": 13 },
+        "female": { "min": 11, "max": 13, "ideal": 12 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "dog_husky",
+      "name": "哈士奇",
+      "species": "dog",
+      "size": "large",
+      "description": "哈士奇精力旺盛，性格友好，需要大量运动。",
+      "healthTraits": [
+        "精力旺盛",
+        "眼部问题",
+        "髋关节问题"
+      ],
+      "commonDiseases": ["髋关节发育不良", "白内障", "角膜营养不良"],
+      "careTips": [
+        "大量运动（每天2小时以上）",
+        "定期眼部检查",
+        "炎热天气注意散热",
+        "社会化训练"
+      ],
+      "weightRange": {
+        "male": { "min": 20, "max": 27, "ideal": 23 },
+        "female": { "min": 16, "max": 23, "ideal": 19 }
+      },
+      "lifespan": "12-14年"
+    },
+    {
+      "id": "dog_samoyed",
+      "name": "萨摩耶",
+      "species": "dog",
+      "size": "large",
+      "description": "萨摩耶拥有标志性的微笑，性格温和友善，毛发雪白浓密。",
+      "healthTraits": [
+        "怕热",
+        "髋关节问题",
+        "糖尿病倾向"
+      ],
+      "commonDiseases": ["髋关节发育不良", "糖尿病", "进行性视网膜萎缩", "心脏病"],
+      "careTips": [
+        "定期梳理厚重毛发",
+        "避免高温环境",
+        "充足运动",
+        "定期健康检查"
+      ],
+      "weightRange": {
+        "male": { "min": 20, "max": 30, "ideal": 25 },
+        "female": { "min": 16, "max": 20, "ideal": 18 }
+      },
+      "lifespan": "12-14年"
+    },
+    {
+      "id": "dog_pug",
+      "name": "巴哥犬",
+      "species": "dog",
+      "size": "small",
+      "description": "巴哥犬性格温和可爱，适合城市家庭饲养。",
+      "healthTraits": [
+        "短鼻犬，呼吸问题",
+        "眼睛突出易受伤",
+        "容易肥胖"
+      ],
+      "commonDiseases": ["短头颅综合症", "眼球脱垂", "肥胖症", "皮肤褶皱感染"],
+      "careTips": [
+        "避免高温和剧烈运动",
+        "清洁面部褶皱",
+        "保护眼睛",
+        "控制体重"
+      ],
+      "weightRange": {
+        "male": { "min": 6, "max": 8, "ideal": 7 },
+        "female": { "min": 6, "max": 8, "ideal": 7 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "dog_shih_tzu",
+      "name": "西施犬",
+      "species": "dog",
+      "size": "small",
+      "description": "西施犬拥有长而华丽的被毛，性格友好温顺。",
+      "healthTraits": [
+        "眼部问题",
+        "呼吸道问题",
+        "耳部感染"
+      ],
+      "commonDiseases": ["髌骨脱位", "椎间盘突出", "眼部疾病", "耳部感染"],
+      "careTips": [
+        "每天梳理毛发",
+        "清洁眼部和面部",
+        "定期修剪",
+        "耳朵护理"
+      ],
+      "weightRange": {
+        "male": { "min": 4, "max": 7.5, "ideal": 5.5 },
+        "female": { "min": 4, "max": 7.5, "ideal": 5.5 }
+      },
+      "lifespan": "10-16年"
+    },
+    {
+      "id": "dog_dalmatian",
+      "name": "斑点狗",
+      "species": "dog",
+      "size": "large",
+      "description": "斑点狗以独特的黑色斑点闻名，精力充沛，需要大量运动。",
+      "healthTraits": [
+        "泌尿系统问题",
+        "耳聋倾向",
+        "高能量需求"
+      ],
+      "commonDiseases": ["尿酸结石", "遗传性耳聋", "髋关节发育不良", "皮肤过敏"],
+      "careTips": [
+        "充足饮水和运动",
+        "低嘌呤饮食",
+        "幼犬听力测试",
+        "定期尿检"
+      ],
+      "weightRange": {
+        "male": { "min": 23, "max": 32, "ideal": 27 },
+        "female": { "min": 16, "max": 24, "ideal": 20 }
+      },
+      "lifespan": "11-13年"
+    },
+    {
+      "id": "dog_rottweiler",
+      "name": "罗威纳犬",
+      "species": "dog",
+      "size": "large",
+      "description": "罗威纳犬强壮有力，忠诚护主，需要严格训练。",
+      "healthTraits": [
+        "髋关节和肘关节问题",
+        "心脏疾病",
+        "癌症倾向"
+      ],
+      "commonDiseases": ["髋关节发育不良", "肘关节发育不良", "主动脉瓣狭窄", "骨肉瘤"],
+      "careTips": [
+        "关节保健",
+        "定期心脏检查",
+        "社会化和服从训练",
+        "控制体重"
+      ],
+      "weightRange": {
+        "male": { "min": 50, "max": 60, "ideal": 55 },
+        "female": { "min": 35, "max": 48, "ideal": 41 }
+      },
+      "lifespan": "9-10年"
+    },
+    {
+      "id": "dog_boxer",
+      "name": "拳师犬",
+      "species": "dog",
+      "size": "large",
+      "description": "拳师犬活泼好动，忠诚勇敢，是优秀的工作犬和家庭犬。",
+      "healthTraits": [
+        "心脏疾病",
+        "癌症倾向",
+        "髋关节问题"
+      ],
+      "commonDiseases": ["心肌病", "癌症", "髋关节发育不良", "甲状腺功能减退"],
+      "careTips": [
+        "定期心脏检查",
+        "癌症筛查（尤其老年期）",
+        "适度运动",
+        "避免高温"
+      ],
+      "weightRange": {
+        "male": { "min": 27, "max": 32, "ideal": 30 },
+        "female": { "min": 25, "max": 29, "ideal": 27 }
+      },
+      "lifespan": "10-12年"
+    },
+    {
+      "id": "dog_pomeranian",
+      "name": "博美犬",
+      "species": "dog",
+      "size": "small",
+      "description": "博美犬小巧可爱，性格活泼警觉，毛发蓬松浓密。",
+      "healthTraits": [
+        "牙齿问题",
+        "髌骨脱位",
+        "气管塌陷"
+      ],
+      "commonDiseases": ["髌骨脱位", "气管塌陷", "牙周病", "脱毛症X"],
+      "careTips": [
+        "定期梳理",
+        "牙齿护理",
+        "使用胸背带代替项圈",
+        "避免肥胖"
+      ],
+      "weightRange": {
+        "male": { "min": 1.9, "max": 3.5, "ideal": 2.5 },
+        "female": { "min": 1.9, "max": 3.5, "ideal": 2.5 }
+      },
+      "lifespan": "12-16年"
+    },
+    {
+      "id": "dog_yorkshire",
+      "name": "约克夏梗",
+      "species": "dog",
+      "size": "small",
+      "description": "约克夏梗小巧优雅，性格勇敢自信，被毛如丝般柔滑。",
+      "healthTraits": [
+        "髌骨脱位",
+        "牙齿问题",
+        "低血糖（幼犬）"
+      ],
+      "commonDiseases": ["髌骨脱位", "气管塌陷", "牙周病", "肝门脉分流"],
+      "careTips": [
+        "每天梳理毛发",
+        "牙齿定期护理",
+        "幼犬少量多餐防低血糖",
+        "使用胸背带"
+      ],
+      "weightRange": {
+        "male": { "min": 2, "max": 3.5, "ideal": 2.8 },
+        "female": { "min": 2, "max": 3.5, "ideal": 2.8 }
+      },
+      "lifespan": "13-16年"
+    },
+    {
+      "id": "dog_border_collie",
+      "name": "边境牧羊犬",
+      "species": "dog",
+      "size": "medium",
+      "description": "边境牧羊犬智商最高，工作能力强，需要大量智力和体力刺激。",
+      "healthTraits": [
+        "高智商高能量",
+        "眼部问题",
+        "癫痫倾向"
+      ],
+      "commonDiseases": ["髋关节发育不良", "癫痫", "柯利眼异常", "进行性视网膜萎缩"],
+      "careTips": [
+        "大量运动和智力训练",
+        "定期眼部检查",
+        "社会化训练",
+        "牧羊本能管理"
+      ],
+      "weightRange": {
+        "male": { "min": 14, "max": 20, "ideal": 17 },
+        "female": { "min": 12, "max": 19, "ideal": 15 }
+      },
+      "lifespan": "12-15年"
+    },
+    {
+      "id": "dog_akita",
+      "name": "秋田犬",
+      "species": "dog",
+      "size": "large",
+      "description": "秋田犬是日本大型犬种，忠诚勇敢，性格独立。",
+      "healthTraits": [
+        "髋关节问题",
+        "免疫系统疾病",
+        "甲状腺问题"
+      ],
+      "commonDiseases": ["髋关节发育不良", "自身免疫性疾病", "甲状腺功能减退", "进行性视网膜萎缩"],
+      "careTips": [
+        "社会化训练很重要",
+        "定期健康检查",
+        "关节保护",
+        "皮肤护理"
+      ],
+      "weightRange": {
+        "male": { "min": 34, "max": 54, "ideal": 44 },
+        "female": { "min": 34, "max": 50, "ideal": 42 }
+      },
+      "lifespan": "10-13年"
+    }
+  ]
+}
