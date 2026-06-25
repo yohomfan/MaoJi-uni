@@ -171,7 +171,7 @@
       "Step 6: Tap second pet avatar and verify switch",
       "Step 7: Take screenshot showing pet switcher with multiple pets"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "ai-placeholder",
