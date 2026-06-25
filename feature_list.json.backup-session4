@@ -762,7 +762,7 @@
       "Step 6: Verify modal has 'reject' and 'accept' buttons",
       "Step 7: Take screenshot of privacy modal"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "user-privacy",
@@ -776,7 +776,7 @@
       "Step 6: Verify on next launch, modal does not reappear",
       "Step 7: Take screenshot of accessible app"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "user-privacy",
@@ -789,7 +789,7 @@
       "Step 5: Verify privacy policy document is displayed",
       "Step 6: Take screenshot of policy pages"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "user-vip",
@@ -969,7 +969,7 @@
       "Step 6: Verify '添加宠物' button is prominent",
       "Step 7: Take screenshot of empty state"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "empty-states",
