@@ -748,7 +748,7 @@
       "Step 7: Verify settings and about sections are accessible",
       "Step 8: Take screenshot of user profile"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-privacy",
