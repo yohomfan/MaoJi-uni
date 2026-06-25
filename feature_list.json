@@ -569,7 +569,7 @@
       "Step 6: Verify tasks from all pets are aggregated",
       "Step 7: Take screenshot of calendar with multiple task indicators"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-calendar",
@@ -582,7 +582,7 @@
       "Step 5: Verify today's tasks are listed in the card",
       "Step 6: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-calendar",
@@ -595,7 +595,7 @@
       "Step 5: Verify list shows task type, pet name, how many days overdue",
       "Step 6: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-calendar",
@@ -609,7 +609,7 @@
       "Step 6: Verify each task shows type, pet name, task name",
       "Step 7: Take screenshot of bottom sheet"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-calendar",
@@ -623,7 +623,7 @@
       "Step 6: Verify nextDate is updated for next cycle",
       "Step 7: Take screenshot showing completed task"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "health-calendar",
@@ -637,7 +637,7 @@
       "Step 6: Verify calendar updates to show task on new date",
       "Step 7: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "knowledge",
