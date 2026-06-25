@@ -1244,5 +1244,19 @@
       "Step 9: Take screenshot"
     ],
     "passes": true
+  },
+  {
+    "category": "ui",
+    "description": "Bottom tabBar icons actually RENDER (not broken-image placeholders) — the icon PNG files referenced by pages.json must exist and display in both H5 and mp-weixin",
+    "steps": [
+      "Step 1: Read pages.json tabBar.list and collect every iconPath and selectedIconPath",
+      "Step 2: Verify each referenced PNG actually exists under src/static/tabbar/ (a README is NOT an icon)",
+      "Step 3: Run dev:h5 and navigate to the home page",
+      "Step 4: Screenshot the bottom tabBar region and Read the screenshot",
+      "Step 5: Verify all 4 tabs (首页/档案/玩法/我的) show a real icon image with NO gray broken-image placeholder",
+      "Step 6: Verify the selected tab renders its active-color (#FF8A65) icon",
+      "Step 7: Confirm the mp-weixin build references valid existing iconPath files"
+    ],
+    "passes": false
   }
 ]
