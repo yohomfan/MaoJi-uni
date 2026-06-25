@@ -1,0 +1,1248 @@
+[
+  {
+    "category": "project-structure",
+    "description": "Verify pages.json exists and is valid uni-app routing config with correct structure",
+    "steps": [
+      "Step 1: Check that src/pages.json exists",
+      "Step 2: Verify it is valid JSON",
+      "Step 3: Verify 'pages' array registers all main pages (index, pet/list, pet/detail, pet/edit)",
+      "Step 4: Verify health pages are registered (vaccine, deworm, medical, medicine, weight, calendar)",
+      "Step 5: Verify knowledge pages (list, detail) and user pages (profile, vip, orders) are registered",
+      "Step 6: Verify tabBar section exists with exactly 4 tabs: 首页/档案/玩法/我的",
+      "Step 7: Verify each tabBar item has correct pagePath, text, and iconPath"
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify manifest.json is a valid uni-app manifest with Vue 3 and dual build target config",
+    "steps": [
+      "Step 1: Check that src/manifest.json exists",
+      "Step 2: Verify it is valid JSON",
+      "Step 3: Verify 'vueVersion' is set to '3'",
+      "Step 4: Verify 'mp-weixin' section exists with appid field",
+      "Step 5: Verify 'h5' section exists for H5 build target"
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify NO vue-router is used anywhere in the codebase (uni-app uses pages.json)",
+    "steps": [
+      "Step 1: Grep the entire src/ directory for 'vue-router' imports",
+      "Step 2: Grep for 'createRouter' function calls",
+      "Step 3: Verify zero matches found for both searches",
+      "Step 4: Confirm routing is solely managed by pages.json"
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify uView Plus is the UI library (not Vant or other web-only libraries)",
+    "steps": [
+      "Step 1: Check package.json includes uview-plus dependency",
+      "Step 2: Grep src/ for 'vant' imports - should find zero",
+      "Step 3: Grep src/ for 'element-plus' imports - should find zero",
+      "Step 4: Verify uView Plus is registered in main.ts or pages.json easycom",
+      "Step 5: Check that components use u-* prefix (u-button, u-cell, etc.)"
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify rpx units are used throughout (not px) for mini-program compatibility",
+    "steps": [
+      "Step 1: Sample 5-10 component .vue files",
+      "Step 2: Check their <style> sections for rpx units in layout/spacing",
+      "Step 3: Verify px is avoided for sizing (except borders/hairlines)",
+      "Step 4: Confirm styles use mini-program-compatible units"
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify chart library is uCharts/qiun-data-charts (not DOM-based echarts)",
+    "steps": [
+      "Step 1: Check package.json for chart dependencies",
+      "Step 2: Grep src/ for 'echarts' imports - should find zero",
+      "Step 3: Verify weight chart component uses uCharts or qiun-data-charts",
+      "Step 4: Confirm chart renders on <canvas> element, not DOM"
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify platform adapter layer exists with correct structure for H5/mp-weixin abstraction",
+    "steps": [
+      "Step 1: Check src/platform/ directory exists",
+      "Step 2: Verify data.ts, auth.ts, subscribeMessage.ts, pay.ts, storage.ts files exist",
+      "Step 3: Check each file exports unified interface with H5 and mp-weixin implementations",
+      "Step 4: Verify conditional compilation (#ifdef MP-WEIXIN / #ifdef H5) or runtime flags are used",
+      "Step 5: Grep components/stores to ensure they use platform adapter, never direct wx.* calls"
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify NO direct wx.* or wx.cloud.* calls outside platform adapter layer",
+    "steps": [
+      "Step 1: Grep src/components/ for 'wx\\.' - should find zero",
+      "Step 2: Grep src/stores/ for 'wx\\.' - should find zero",
+      "Step 3: Grep src/pages/ for 'wx\\.' - should find zero",
+      "Step 4: Verify all WeChat API calls are isolated in src/platform/",
+      "Step 5: Confirm components use platform adapter for cloud functions, storage, etc."
+    ],
+    "passes": false
+  },
+  {
+    "category": "project-structure",
+    "description": "Verify NO direct localStorage/IndexedDB calls outside platform adapter",
+    "steps": [
+      "Step 1: Grep src/components/ for 'localStorage' - should find zero",
+      "Step 2: Grep src/stores/ for 'localStorage' - should find zero",
+      "Step 3: Grep src/pages/ for 'localStorage' - should find zero",
+      "Step 4: Verify storage operations use uni.setStorageSync wrappers in platform/storage.ts"
+    ],
+    "passes": false
+  },
+  {
+    "category": "build-verification",
+    "description": "Verify H5 build starts successfully and serves on localhost:5173",
+    "steps": [
+      "Step 1: Run 'npm install' to install dependencies",
+      "Step 2: Run 'npm run dev:h5' to start H5 dev server",
+      "Step 3: Verify server starts without errors",
+      "Step 4: Verify app is accessible at http://localhost:5173",
+      "Step 5: Take screenshot of running H5 app as evidence",
+      "Step 6: Verify no console errors in browser"
+    ],
+    "passes": false
+  },
+  {
+    "category": "build-verification",
+    "description": "Verify mp-weixin build compiles successfully without errors",
+    "steps": [
+      "Step 1: Run 'npm run build:mp-weixin' command",
+      "Step 2: Verify build completes without errors",
+      "Step 3: Check dist/build/mp-weixin directory is created",
+      "Step 4: Verify essential files exist (app.json, app.js, pages)",
+      "Step 5: Capture build output log as evidence",
+      "Step 6: Confirm no TypeScript errors, no compilation warnings"
+    ],
+    "passes": false
+  },
+  {
+    "category": "navigation",
+    "description": "Verify 4-tab bottom navigation bar renders correctly with all tabs",
+    "steps": [
+      "Step 1: Open H5 app at http://localhost:5173",
+      "Step 2: Verify bottom tab bar is visible",
+      "Step 3: Verify 4 tabs are present: 首页, 档案, 玩法, 我的",
+      "Step 4: Verify tabs have correct icons and labels",
+      "Step 5: Tap each tab and verify navigation works",
+      "Step 6: Take screenshot showing all 4 tabs",
+      "Step 7: Verify active tab is highlighted"
+    ],
+    "passes": false
+  },
+  {
+    "category": "home-page",
+    "description": "Verify home page (首页) renders with health calendar, pet cards, and today's todos",
+    "steps": [
+      "Step 1: Navigate to 首页 tab",
+      "Step 2: Verify page title shows '毛叽' or '健康日历'",
+      "Step 3: Verify pet card section is visible (or empty state if no pets)",
+      "Step 4: Verify health calendar widget is displayed",
+      "Step 5: Verify 今日待办 (today's todos) section is visible",
+      "Step 6: Take screenshot of complete home page",
+      "Step 7: Verify layout is clean and responsive"
+    ],
+    "passes": false
+  },
+  {
+    "category": "home-page",
+    "description": "Verify pet switcher appears on home page when user has multiple pets",
+    "steps": [
+      "Step 1: Create first pet via pet archive",
+      "Step 2: Create second pet via pet archive",
+      "Step 3: Return to home page",
+      "Step 4: Verify horizontal pet switcher appears at top",
+      "Step 5: Verify both pet avatars are shown",
+      "Step 6: Tap second pet avatar and verify switch",
+      "Step 7: Take screenshot showing pet switcher with multiple pets"
+    ],
+    "passes": false
+  },
+  {
+    "category": "ai-placeholder",
+    "description": "Verify 玩法 tab shows only a 'Coming Soon' placeholder (AI features deferred to V2)",
+    "steps": [
+      "Step 1: Navigate to 玩法 tab",
+      "Step 2: Verify page shows '敬请期待' or 'Coming Soon' message",
+      "Step 3: Verify friendly illustration or image is displayed",
+      "Step 4: Verify copy mentions AI 写真 is coming soon",
+      "Step 5: Verify NO gallery, upload, generation, payment UI is present",
+      "Step 6: Verify NO AI-related interactive features exist",
+      "Step 7: Take screenshot of placeholder page"
+    ],
+    "passes": false
+  },
+  {
+    "category": "pet-archive",
+    "description": "Create a new pet with all required fields via pet archive form",
+    "steps": [
+      "Step 1: Navigate to 档案 (pet list) tab",
+      "Step 2: Tap '添加宠物' or '+' button to open create form",
+      "Step 3: Upload pet avatar image",
+      "Step 4: Enter pet name '毛球'",
+      "Step 5: Select species (cat/dog/other)",
+      "Step 6: Enter breed",
+      "Step 7: Select gender",
+      "Step 8: Enter birthday date",
+      "Step 9: Enter current weight",
+      "Step 10: Select neutered status (yes/no/unknown)",
+      "Step 11: Optionally enter chip number",
+      "Step 12: Tap submit button",
+      "Step 13: Verify success message and return to pet list",
+      "Step 14: Take screenshot showing new pet in list"
+    ],
+    "passes": false
+  },
+  {
+    "category": "pet-archive",
+    "description": "View pet detail page showing all pet information",
+    "steps": [
+      "Step 1: From pet list, tap on a pet card",
+      "Step 2: Verify pet detail page opens",
+      "Step 3: Verify avatar is displayed prominently",
+      "Step 4: Verify all fields are shown: name, species, breed, gender, birthday, age",
+      "Step 5: Verify weight, neutered status, chip number are displayed",
+      "Step 6: Take screenshot of pet detail page"
+    ],
+    "passes": false
+  },
+  {
+    "category": "pet-archive",
+    "description": "Edit existing pet information and verify changes persist",
+    "steps": [
+      "Step 1: Open pet detail page",
+      "Step 2: Tap '编辑' or edit button",
+      "Step 3: Change pet name from '毛球' to '毛毛'",
+      "Step 4: Update weight value",
+      "Step 5: Tap save button",
+      "Step 6: Verify success message",
+      "Step 7: Return to detail page and verify changes are shown",
+      "Step 8: Take screenshot confirming updated information"
+    ],
+    "passes": false
+  },
+  {
+    "category": "pet-archive",
+    "description": "Delete a pet with confirmation modal and verify soft delete",
+    "steps": [
+      "Step 1: Open pet detail page",
+      "Step 2: Tap delete button",
+      "Step 3: Verify confirmation modal appears",
+      "Step 4: Verify modal warns about deletion",
+      "Step 5: Tap confirm in modal",
+      "Step 6: Verify pet is removed from list",
+      "Step 7: Verify pet is soft-deleted (deletedAt set, records retained)",
+      "Step 8: Take screenshot of empty list or remaining pets"
+    ],
+    "passes": false
+  },
+  {
+    "category": "pet-archive",
+    "description": "Verify multiple pets can be managed (create 3+ pets and verify list)",
+    "steps": [
+      "Step 1: Create first pet '毛球' (cat)",
+      "Step 2: Create second pet '旺财' (dog)",
+      "Step 3: Create third pet '咪咪' (cat)",
+      "Step 4: Return to pet list",
+      "Step 5: Verify all 3 pets are shown as cards",
+      "Step 6: Verify each card shows avatar, name, basic info",
+      "Step 7: Take screenshot of pet list with multiple pets"
+    ],
+    "passes": false
+  },
+  {
+    "category": "pet-archive",
+    "description": "Verify pet avatar upload works via platform storage adapter",
+    "steps": [
+      "Step 1: Open pet create/edit form",
+      "Step 2: Tap avatar upload area",
+      "Step 3: Select image file",
+      "Step 4: Verify image preview appears",
+      "Step 5: Save pet",
+      "Step 6: Verify avatar displays correctly in list and detail pages",
+      "Step 7: In H5 build, verify image is stored via IndexedDB/object URL mock",
+      "Step 8: Take screenshot showing uploaded avatar"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-vaccine",
+    "description": "Create a vaccination record with preset vaccine (狂犬/三联/四联)",
+    "steps": [
+      "Step 1: Navigate to health section, select pet",
+      "Step 2: Tap '疫苗管理' to open vaccine list",
+      "Step 3: Tap '添加疫苗' button",
+      "Step 4: Select preset vaccine type (e.g., 狂犬疫苗)",
+      "Step 5: Enter vaccination date",
+      "Step 6: Enter hospital/clinic name",
+      "Step 7: Add optional note",
+      "Step 8: Tap save",
+      "Step 9: Verify nextDate is auto-computed (365 days for rabies)",
+      "Step 10: Verify record appears in vaccine list",
+      "Step 11: Take screenshot of vaccine list with new record"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-vaccine",
+    "description": "Create custom vaccine record and verify next date calculation",
+    "steps": [
+      "Step 1: Open vaccine list",
+      "Step 2: Tap add vaccine",
+      "Step 3: Select 'custom' vaccine type",
+      "Step 4: Enter custom vaccine name",
+      "Step 5: Enter date and hospital",
+      "Step 6: Save record",
+      "Step 7: Verify custom vaccine appears in list",
+      "Step 8: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-vaccine",
+    "description": "Verify vaccine list shows upcoming vaccines sorted by nextDate",
+    "steps": [
+      "Step 1: Create 3+ vaccine records with different dates",
+      "Step 2: Open vaccine list",
+      "Step 3: Verify vaccines are sorted by nextDate (soonest first)",
+      "Step 4: Verify each item shows vaccine name, date, nextDate",
+      "Step 5: Verify overdue vaccines are highlighted in red/warning color",
+      "Step 6: Take screenshot of sorted vaccine list"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-vaccine",
+    "description": "Complete a vaccine record and verify nextDate updates for next cycle",
+    "steps": [
+      "Step 1: Open vaccine detail page for upcoming vaccine",
+      "Step 2: Tap '完成' (complete) button",
+      "Step 3: Verify completion date is recorded",
+      "Step 4: Verify nextDate is updated to next cycle (e.g., +365 days)",
+      "Step 5: Verify record shows as completed in list",
+      "Step 6: Take screenshot showing updated record"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-vaccine",
+    "description": "Postpone a vaccine and verify nextDate is pushed forward",
+    "steps": [
+      "Step 1: Open vaccine detail page",
+      "Step 2: Tap '推迟' (postpone) button",
+      "Step 3: Select new date for vaccination",
+      "Step 4: Confirm postponement",
+      "Step 5: Verify nextDate is updated to selected date",
+      "Step 6: Take screenshot confirming postponement"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-vaccine",
+    "description": "Verify first-year combo vaccine sequence (3-shot 21-day intervals)",
+    "steps": [
+      "Step 1: Create puppy/kitten with age < 1 year",
+      "Step 2: Add first 三联/四联 vaccine",
+      "Step 3: Verify nextDate is computed as +21 days for second shot",
+      "Step 4: Complete first shot",
+      "Step 5: Verify nextDate updates to +21 days for third shot",
+      "Step 6: Complete second shot",
+      "Step 7: Verify nextDate updates to +21 days for third shot",
+      "Step 8: Complete third shot",
+      "Step 9: Verify nextDate updates to +365 days for annual booster",
+      "Step 10: Take screenshot showing sequence"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-deworm",
+    "description": "Create internal deworming record (体内) with 90-day cycle",
+    "steps": [
+      "Step 1: Navigate to health section, select pet",
+      "Step 2: Tap '驱虫管理'",
+      "Step 3: Tap add deworming record",
+      "Step 4: Select '体内' (internal) type",
+      "Step 5: Enter date and medicine name",
+      "Step 6: Save record",
+      "Step 7: Verify nextDate is set to +90 days",
+      "Step 8: Verify record appears in deworm list",
+      "Step 9: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-deworm",
+    "description": "Create external deworming record (体外) with 30-day cycle",
+    "steps": [
+      "Step 1: Open deworm list",
+      "Step 2: Add new deworming record",
+      "Step 3: Select '体外' (external) type",
+      "Step 4: Enter date and product name",
+      "Step 5: Save record",
+      "Step 6: Verify nextDate is set to +30 days",
+      "Step 7: Verify record appears in list",
+      "Step 8: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-deworm",
+    "description": "Complete deworming record and verify cycle continuation",
+    "steps": [
+      "Step 1: Open deworm detail for upcoming deworming",
+      "Step 2: Tap '完成' button",
+      "Step 3: Verify completion is recorded",
+      "Step 4: Verify nextDate advances by cycle (30d for 体外, 90d for 体内)",
+      "Step 5: Take screenshot showing updated record"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-deworm",
+    "description": "Postpone deworming and verify nextDate updates",
+    "steps": [
+      "Step 1: Open deworm detail",
+      "Step 2: Tap '推迟' button",
+      "Step 3: Select postpone date",
+      "Step 4: Confirm",
+      "Step 5: Verify nextDate is updated",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-medical",
+    "description": "Create medical/physical exam record with report upload",
+    "steps": [
+      "Step 1: Navigate to health section",
+      "Step 2: Tap '体检记录'",
+      "Step 3: Tap add medical record",
+      "Step 4: Enter exam date",
+      "Step 5: Enter hospital/clinic name",
+      "Step 6: Upload report image or PDF via platform storage",
+      "Step 7: Enter conclusion/summary",
+      "Step 8: Add key metrics (optional)",
+      "Step 9: Save record",
+      "Step 10: Verify nextDate is set to +365 days (annual)",
+      "Step 11: Verify record appears in medical list",
+      "Step 12: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-medical",
+    "description": "Verify medical exam nextDate adjusts for senior pets (180-day cycle if age >= 7 years)",
+    "steps": [
+      "Step 1: Create pet with age >= 7 years (senior pet)",
+      "Step 2: Add medical exam record",
+      "Step 3: Save record",
+      "Step 4: Verify nextDate is computed as +180 days (not 365)",
+      "Step 5: Take screenshot showing 180-day cycle for senior pet"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-medical",
+    "description": "View medical record detail and preview uploaded report attachment",
+    "steps": [
+      "Step 1: Open medical record list",
+      "Step 2: Tap on record with uploaded report",
+      "Step 3: Verify detail page shows all information",
+      "Step 4: Tap on report attachment",
+      "Step 5: Verify image/PDF preview opens",
+      "Step 6: In H5 build, verify attachment loads from IndexedDB object URL",
+      "Step 7: Take screenshot of preview"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-medicine",
+    "description": "Create ongoing medication record with daily reminder",
+    "steps": [
+      "Step 1: Navigate to health section",
+      "Step 2: Tap '用药记录'",
+      "Step 3: Tap add medicine record",
+      "Step 4: Enter medicine name",
+      "Step 5: Enter dosage information",
+      "Step 6: Set start date and end date",
+      "Step 7: Enable daily reminder",
+      "Step 8: Save record",
+      "Step 9: Verify record appears in current medications list",
+      "Step 10: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-medicine",
+    "description": "Verify current medications list shows only active (ongoing) medications",
+    "steps": [
+      "Step 1: Create medicine record with end date in future (active)",
+      "Step 2: Create medicine record with end date in past (expired)",
+      "Step 3: Open medicine list",
+      "Step 4: Verify only active medication is shown in 'current' section",
+      "Step 5: Verify expired medication is in history or hidden",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-weight",
+    "description": "Add manual weight entry to weight timeline",
+    "steps": [
+      "Step 1: Navigate to health section",
+      "Step 2: Tap '成长记录' or '体重'",
+      "Step 3: Tap add weight entry",
+      "Step 4: Enter weight value (kg)",
+      "Step 5: Select date",
+      "Step 6: Add optional note",
+      "Step 7: Save entry",
+      "Step 8: Verify entry appears in timeline list (newest first)",
+      "Step 9: Take screenshot of weight timeline"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-weight",
+    "description": "Verify weight timeline shows entries sorted newest-first with notes",
+    "steps": [
+      "Step 1: Create 5+ weight entries with different dates",
+      "Step 2: Add notes to 2-3 entries",
+      "Step 3: Open weight timeline",
+      "Step 4: Verify entries are sorted newest-first",
+      "Step 5: Verify each entry shows weight, date, and note (if present)",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-weight",
+    "description": "View weight chart visualization (line chart over time)",
+    "steps": [
+      "Step 1: Create 10+ weight entries spanning several months",
+      "Step 2: Open weight section",
+      "Step 3: Verify line chart is displayed showing weight over time",
+      "Step 4: Verify chart uses uCharts or qiun-data-charts (canvas-based)",
+      "Step 5: Verify X-axis shows dates, Y-axis shows weight",
+      "Step 6: Verify chart is interactive (can tap points to see details)",
+      "Step 7: Take screenshot of weight chart"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-weight",
+    "description": "Verify weight chart shows healthy band overlay based on breed standards",
+    "steps": [
+      "Step 1: Create pet with specific breed that has known weight range",
+      "Step 2: Add weight entries",
+      "Step 3: Open weight chart",
+      "Step 4: Verify chart shows healthy weight band/range overlay",
+      "Step 5: Verify band is based on breed standards from breed wiki",
+      "Step 6: Verify pet's weight line shows relative to healthy range",
+      "Step 7: Take screenshot showing band overlay"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-calendar",
+    "description": "View unified health calendar showing all upcoming health tasks across all pets",
+    "steps": [
+      "Step 1: Create 2+ pets",
+      "Step 2: Add vaccine, deworm, and medical records for each pet",
+      "Step 3: Navigate to health calendar (健康日历)",
+      "Step 4: Verify calendar grid shows current month",
+      "Step 5: Verify days with health tasks show category dots/indicators",
+      "Step 6: Verify tasks from all pets are aggregated",
+      "Step 7: Take screenshot of calendar with multiple task indicators"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-calendar",
+    "description": "View 今日待办 (today's todos) card with urgent health tasks",
+    "steps": [
+      "Step 1: Create health records with nextDate = today",
+      "Step 2: Navigate to home page or health calendar",
+      "Step 3: Verify '今日待办' card is displayed prominently",
+      "Step 4: Verify card shows red/urgent styling",
+      "Step 5: Verify today's tasks are listed in the card",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-calendar",
+    "description": "View overdue health tasks (逾期) list with warning indicators",
+    "steps": [
+      "Step 1: Create health records with nextDate in the past",
+      "Step 2: Open health calendar",
+      "Step 3: Verify '逾期' (overdue) section is displayed",
+      "Step 4: Verify overdue tasks are shown with warning color/icon",
+      "Step 5: Verify list shows task type, pet name, how many days overdue",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-calendar",
+    "description": "Tap calendar day to open bottom sheet with that day's health tasks",
+    "steps": [
+      "Step 1: Create health tasks for specific future date",
+      "Step 2: Open health calendar",
+      "Step 3: Tap on calendar day that has task indicators",
+      "Step 4: Verify bottom sheet slides up",
+      "Step 5: Verify sheet shows all tasks for that day",
+      "Step 6: Verify each task shows type, pet name, task name",
+      "Step 7: Take screenshot of bottom sheet"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-calendar",
+    "description": "Complete health task directly from calendar bottom sheet (一键完成)",
+    "steps": [
+      "Step 1: Open calendar and tap day with upcoming task",
+      "Step 2: In bottom sheet, verify '完成' button is shown for each task",
+      "Step 3: Tap '完成' button for a task",
+      "Step 4: Verify confirmation or success message",
+      "Step 5: Verify task is marked complete",
+      "Step 6: Verify nextDate is updated for next cycle",
+      "Step 7: Take screenshot showing completed task"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-calendar",
+    "description": "Postpone health task from calendar bottom sheet (一键推迟)",
+    "steps": [
+      "Step 1: Open calendar bottom sheet for day with task",
+      "Step 2: Tap '推迟' button for a task",
+      "Step 3: Select new postpone date",
+      "Step 4: Confirm postponement",
+      "Step 5: Verify task nextDate is updated",
+      "Step 6: Verify calendar updates to show task on new date",
+      "Step 7: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "knowledge",
+    "description": "View knowledge library list with categories (疫苗/驱虫/常见病/营养/急救)",
+    "steps": [
+      "Step 1: Navigate to knowledge section",
+      "Step 2: Verify knowledge article list is displayed",
+      "Step 3: Verify categories are shown: 疫苗, 驱虫, 常见病, 营养, 急救",
+      "Step 4: Verify at least 20 articles are seeded",
+      "Step 5: Verify each article shows title, cover image, category",
+      "Step 6: Take screenshot of knowledge list"
+    ],
+    "passes": false
+  },
+  {
+    "category": "knowledge",
+    "description": "Filter knowledge articles by category",
+    "steps": [
+      "Step 1: Open knowledge list",
+      "Step 2: Verify category filter tabs/buttons are present",
+      "Step 3: Tap '疫苗' category",
+      "Step 4: Verify only vaccine-related articles are shown",
+      "Step 5: Tap '营养' category",
+      "Step 6: Verify only nutrition articles are shown",
+      "Step 7: Take screenshot of filtered list"
+    ],
+    "passes": false
+  },
+  {
+    "category": "knowledge",
+    "description": "Search knowledge articles by keyword",
+    "steps": [
+      "Step 1: Open knowledge list",
+      "Step 2: Verify search bar is present",
+      "Step 3: Enter search keyword (e.g., '狂犬')",
+      "Step 4: Verify search results show matching articles",
+      "Step 5: Verify results highlight keyword match in title",
+      "Step 6: Take screenshot of search results"
+    ],
+    "passes": false
+  },
+  {
+    "category": "knowledge",
+    "description": "View knowledge article detail with markdown-rendered content",
+    "steps": [
+      "Step 1: From knowledge list, tap on an article",
+      "Step 2: Verify article detail page opens",
+      "Step 3: Verify title, cover image, category are shown",
+      "Step 4: Verify article content is rendered (markdown -> rich text)",
+      "Step 5: Verify formatting (headings, lists, bold) is preserved",
+      "Step 6: Verify images in content are displayed",
+      "Step 7: Take screenshot of article detail"
+    ],
+    "passes": false
+  },
+  {
+    "category": "knowledge",
+    "description": "Verify breed encyclopedia (品种百科) has cat and dog breeds with health info",
+    "steps": [
+      "Step 1: Navigate to knowledge section or breed wiki",
+      "Step 2: Verify breed list is accessible",
+      "Step 3: Verify at least 20 cat breeds are listed",
+      "Step 4: Verify at least 20 dog breeds are listed",
+      "Step 5: Select a breed (e.g., 金毛)",
+      "Step 6: Verify breed detail shows health traits, common diseases, care tips, weight ranges",
+      "Step 7: Take screenshot of breed detail"
+    ],
+    "passes": false
+  },
+  {
+    "category": "knowledge",
+    "description": "Verify breed data is used in pet breed picker during pet creation",
+    "steps": [
+      "Step 1: Open pet create form",
+      "Step 2: Tap breed selection field",
+      "Step 3: Verify breed picker shows list from breed encyclopedia",
+      "Step 4: Verify breeds are categorized by species (cat/dog)",
+      "Step 5: Select a breed",
+      "Step 6: Verify breed is saved with pet",
+      "Step 7: Take screenshot of breed picker"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-auth",
+    "description": "Perform login via platform auth adapter (H5: demo login, mp-weixin: uni.login)",
+    "steps": [
+      "Step 1: Open app (not logged in)",
+      "Step 2: In H5 build, verify 'Demo 一键登录' button is shown",
+      "Step 3: Tap login button",
+      "Step 4: Verify login succeeds with deterministic demo openid",
+      "Step 5: Verify user is redirected to home or user profile",
+      "Step 6: Verify login state persists across page refresh",
+      "Step 7: Take screenshot showing logged-in state"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-profile",
+    "description": "View user profile center (我的中心) with avatar, nickname, and sections",
+    "steps": [
+      "Step 1: Navigate to '我的' tab",
+      "Step 2: Verify user profile page is displayed",
+      "Step 3: Verify avatar and nickname are shown at top",
+      "Step 4: Verify pet list summary is present",
+      "Step 5: Verify VIP status section is shown",
+      "Step 6: Verify orders entry is present",
+      "Step 7: Verify settings and about sections are accessible",
+      "Step 8: Take screenshot of user profile"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-privacy",
+    "description": "Verify privacy consent modal appears on first app launch and blocks usage",
+    "steps": [
+      "Step 1: Clear app storage to simulate first launch",
+      "Step 2: Open app",
+      "Step 3: Verify privacy consent modal appears immediately",
+      "Step 4: Verify modal blocks all app interaction (blocking modal)",
+      "Step 5: Verify '用户协议' and '隐私政策' links are present",
+      "Step 6: Verify modal has 'reject' and 'accept' buttons",
+      "Step 7: Take screenshot of privacy modal"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-privacy",
+    "description": "Accept privacy consent and verify app becomes accessible",
+    "steps": [
+      "Step 1: First launch privacy modal is displayed",
+      "Step 2: Tap 'accept' or '同意' button",
+      "Step 3: Verify modal closes",
+      "Step 4: Verify app is now accessible",
+      "Step 5: Verify consent version is tracked in storage",
+      "Step 6: Verify on next launch, modal does not reappear",
+      "Step 7: Take screenshot of accessible app"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-privacy",
+    "description": "View 用户协议 and 隐私政策 documents",
+    "steps": [
+      "Step 1: Navigate to settings or user profile",
+      "Step 2: Find '用户协议' link and tap it",
+      "Step 3: Verify user agreement document is displayed",
+      "Step 4: Return and tap '隐私政策' link",
+      "Step 5: Verify privacy policy document is displayed",
+      "Step 6: Take screenshot of policy pages"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-vip",
+    "description": "View VIP membership page showing benefits and pricing",
+    "steps": [
+      "Step 1: Navigate to VIP section from user profile",
+      "Step 2: Verify VIP membership page is displayed",
+      "Step 3: Verify benefits are listed: 高级提醒, 体检解读, 更多档案位",
+      "Step 4: Verify pricing is shown (月度 19.9)",
+      "Step 5: Verify purchase button is present",
+      "Step 6: Verify current VIP status is displayed (active/expired)",
+      "Step 7: Take screenshot of VIP page"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-vip",
+    "description": "Purchase VIP membership via platform pay adapter (H5: mock payment flow)",
+    "steps": [
+      "Step 1: Open VIP membership page",
+      "Step 2: Tap purchase button",
+      "Step 3: Verify payment confirmation dialog appears",
+      "Step 4: In H5 build, verify mock payment flow is triggered",
+      "Step 5: Confirm mock payment",
+      "Step 6: Verify success message is shown",
+      "Step 7: Verify VIP status is updated to active",
+      "Step 8: Verify vipExpireAt is set (e.g., +30 days)",
+      "Step 9: Take screenshot showing VIP active status"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-vip",
+    "description": "Verify VIP-gated features are accessible to VIP users",
+    "steps": [
+      "Step 1: Ensure user has active VIP status",
+      "Step 2: Attempt to access VIP-only features (e.g., advanced reminders)",
+      "Step 3: Verify features are accessible",
+      "Step 4: Log out and log in as non-VIP user",
+      "Step 5: Attempt to access same features",
+      "Step 6: Verify features show VIP upgrade prompt",
+      "Step 7: Take screenshot showing gated feature"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-orders",
+    "description": "View order history showing VIP purchases",
+    "steps": [
+      "Step 1: Purchase VIP membership to create order",
+      "Step 2: Navigate to orders page from user profile",
+      "Step 3: Verify orders list is displayed",
+      "Step 4: Verify VIP purchase order is shown",
+      "Step 5: Verify order shows type, amount, status, payment time",
+      "Step 6: Take screenshot of orders list"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-subscribe",
+    "description": "Trigger subscribe message authorization flow (H5: mock, mp-weixin: real)",
+    "steps": [
+      "Step 1: Navigate to settings or health reminder setup",
+      "Step 2: Tap '订阅消息授权' or health reminder enable",
+      "Step 3: In H5 build, verify mock authorization dialog appears",
+      "Step 4: Verify dialog lists health reminder templates (疫苗/驱虫/体检/用药)",
+      "Step 5: Accept authorization",
+      "Step 6: Verify success toast is shown",
+      "Step 7: Verify consent is recorded in platform adapter",
+      "Step 8: Take screenshot of authorization flow"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-subscribe",
+    "description": "Verify idempotent re-prompt logic for subscribe message (don't spam user)",
+    "steps": [
+      "Step 1: Authorize subscribe messages",
+      "Step 2: Navigate away and return to reminder settings",
+      "Step 3: Verify authorization prompt does NOT reappear immediately",
+      "Step 4: Verify status shows 'already authorized'",
+      "Step 5: Verify option to re-authorize is available if needed",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-customer-service",
+    "description": "View customer service page with QR code and FAQ",
+    "steps": [
+      "Step 1: Navigate to settings or help section",
+      "Step 2: Tap '客服' or customer service",
+      "Step 3: Verify customer service page opens",
+      "Step 4: Verify 企业微信 QR code is displayed",
+      "Step 5: Verify FAQ section is present with at least 30 entries",
+      "Step 6: Tap an FAQ item and verify answer expands",
+      "Step 7: Take screenshot of customer service page"
+    ],
+    "passes": false
+  },
+  {
+    "category": "reminder-logic",
+    "description": "Verify healthCycle.ts computeNextDate function for vaccine cycles",
+    "steps": [
+      "Step 1: Locate src/utils/healthCycle.ts file",
+      "Step 2: Verify computeNextDate function exists",
+      "Step 3: Run unit test for 狂犬疫苗 -> verify 365-day cycle",
+      "Step 4: Run unit test for 三联/四联 first-year -> verify 21-day intervals for 3 shots",
+      "Step 5: Run unit test for 三联/四联 after first year -> verify 365-day cycle",
+      "Step 6: Capture unit test output as evidence",
+      "Step 7: Verify all tests pass"
+    ],
+    "passes": false
+  },
+  {
+    "category": "reminder-logic",
+    "description": "Verify healthCycle.ts computeNextDate for deworm cycles (30d/90d)",
+    "steps": [
+      "Step 1: Run unit test for 体外驱虫 -> verify 30-day cycle",
+      "Step 2: Run unit test for 体内驱虫 -> verify 90-day cycle",
+      "Step 3: Verify edge cases (leap years, month boundaries)",
+      "Step 4: Capture test output",
+      "Step 5: Verify all tests pass"
+    ],
+    "passes": false
+  },
+  {
+    "category": "reminder-logic",
+    "description": "Verify healthCycle.ts computeNextDate for medical exam (365d, 180d for seniors)",
+    "steps": [
+      "Step 1: Run unit test for annual exam (pet age < 7) -> verify 365-day cycle",
+      "Step 2: Run unit test for senior pet exam (age >= 7) -> verify 180-day cycle",
+      "Step 3: Verify age boundary condition (exactly 7 years)",
+      "Step 4: Capture test output",
+      "Step 5: Verify all tests pass"
+    ],
+    "passes": false
+  },
+  {
+    "category": "reminder-logic",
+    "description": "Verify health reminder pipeline simulates 7/3/1-day window for upcoming tasks",
+    "steps": [
+      "Step 1: Create health record with nextDate = 7 days from now",
+      "Step 2: Open health calendar",
+      "Step 3: Verify task appears in 'upcoming' section with '7天后' indicator",
+      "Step 4: Create record with nextDate = 3 days from now",
+      "Step 5: Verify task shows '3天后' with higher urgency styling",
+      "Step 6: Create record with nextDate = 1 day from now",
+      "Step 7: Verify task shows '明天' with urgent styling",
+      "Step 8: Take screenshot showing tiered reminder urgency"
+    ],
+    "passes": false
+  },
+  {
+    "category": "data-seed",
+    "description": "Verify H5 mock data adapter seeds non-empty demo data for verification",
+    "steps": [
+      "Step 1: Clear all app storage",
+      "Step 2: Open H5 app fresh",
+      "Step 3: Verify demo pet is pre-seeded (or easy onboarding flow creates one)",
+      "Step 4: Verify some health records are seeded for demo",
+      "Step 5: Verify health calendar shows seeded tasks",
+      "Step 6: Verify screens are not empty on first load",
+      "Step 7: Take screenshot showing seeded data"
+    ],
+    "passes": false
+  },
+  {
+    "category": "empty-states",
+    "description": "Verify empty state UI when no pets exist",
+    "steps": [
+      "Step 1: Clear all pets from storage",
+      "Step 2: Navigate to pet list (档案 tab)",
+      "Step 3: Verify empty state component is displayed",
+      "Step 4: Verify friendly illustration/icon is shown",
+      "Step 5: Verify message like '还没有宠物，快去添加吧'",
+      "Step 6: Verify '添加宠物' button is prominent",
+      "Step 7: Take screenshot of empty state"
+    ],
+    "passes": false
+  },
+  {
+    "category": "empty-states",
+    "description": "Verify empty state when no weight records exist",
+    "steps": [
+      "Step 1: Create pet but add no weight records",
+      "Step 2: Navigate to weight timeline",
+      "Step 3: Verify empty state is shown",
+      "Step 4: Verify message indicates no weight records",
+      "Step 5: Verify '添加体重' call-to-action is present",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "empty-states",
+    "description": "Verify empty state when no knowledge search results",
+    "steps": [
+      "Step 1: Open knowledge library",
+      "Step 2: Search for nonsense keyword that returns no results",
+      "Step 3: Verify empty search results state is shown",
+      "Step 4: Verify message like '未找到相关知识'",
+      "Step 5: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "responsive-layout",
+    "description": "Verify app layout is responsive and mobile-optimized",
+    "steps": [
+      "Step 1: Open H5 app in browser",
+      "Step 2: Verify viewport is set to mobile width",
+      "Step 3: Check multiple pages (home, pet list, health calendar)",
+      "Step 4: Verify content fits within mobile screen (no horizontal scroll)",
+      "Step 5: Verify touch targets are >= 44px (~88rpx)",
+      "Step 6: Take screenshots at different pages showing responsive layout"
+    ],
+    "passes": false
+  },
+  {
+    "category": "ui-design",
+    "description": "Verify brand color #FF8A65 (warm coral) is used for primary actions and accents",
+    "steps": [
+      "Step 1: Inspect primary buttons in app",
+      "Step 2: Verify brand color #FF8A65 is used",
+      "Step 3: Check tab bar active state color",
+      "Step 4: Check accent colors on cards and CTAs",
+      "Step 5: Take screenshot showing brand color usage"
+    ],
+    "passes": false
+  },
+  {
+    "category": "ui-design",
+    "description": "Verify UI uses rounded cards with soft shadows and generous spacing",
+    "steps": [
+      "Step 1: View home page with pet cards",
+      "Step 2: Verify cards have rounded corners (border-radius)",
+      "Step 3: Verify subtle box-shadow is applied",
+      "Step 4: Verify spacing between cards is generous (not cramped)",
+      "Step 5: Take screenshot showing card design"
+    ],
+    "passes": false
+  },
+  {
+    "category": "ui-design",
+    "description": "Verify Chinese microcopy is friendly and clear throughout app",
+    "steps": [
+      "Step 1: Review button labels, headings, placeholders across app",
+      "Step 2: Verify text is in Chinese (Simplified)",
+      "Step 3: Verify tone is friendly and conversational (符合宠物主人语境)",
+      "Step 4: Check error messages are helpful, not technical",
+      "Step 5: Verify empty states have encouraging copy",
+      "Step 6: Take screenshots of various text elements"
+    ],
+    "passes": false
+  },
+  {
+    "category": "platform-adapter-data",
+    "description": "Verify src/platform/data.ts exports unified CRUD interface for pet/health/knowledge",
+    "steps": [
+      "Step 1: Read src/platform/data.ts file",
+      "Step 2: Verify it exports functions for pet CRUD (create, read, update, delete)",
+      "Step 3: Verify it exports functions for health record CRUD",
+      "Step 4: Verify it exports functions for knowledge fetch",
+      "Step 5: Verify conditional compilation for H5 vs mp-weixin implementations",
+      "Step 6: In H5 mode, verify mock uses uni.setStorageSync wrapper",
+      "Step 7: Take code snapshot as evidence"
+    ],
+    "passes": false
+  },
+  {
+    "category": "platform-adapter-auth",
+    "description": "Verify src/platform/auth.ts handles login for both H5 and mp-weixin",
+    "steps": [
+      "Step 1: Read src/platform/auth.ts file",
+      "Step 2: Verify it exports login function",
+      "Step 3: Verify H5 implementation returns deterministic demo openid",
+      "Step 4: Verify mp-weixin implementation calls uni.login",
+      "Step 5: Take code snapshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "platform-adapter-subscribe",
+    "description": "Verify src/platform/subscribeMessage.ts handles authorization for both targets",
+    "steps": [
+      "Step 1: Read src/platform/subscribeMessage.ts file",
+      "Step 2: Verify it exports requestSubscribeMessage function",
+      "Step 3: Verify H5 implementation shows mock dialog and records consent",
+      "Step 4: Verify mp-weixin implementation calls uni.requestSubscribeMessage",
+      "Step 5: Take code snapshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "platform-adapter-pay",
+    "description": "Verify src/platform/pay.ts handles VIP payment for both targets",
+    "steps": [
+      "Step 1: Read src/platform/pay.ts file",
+      "Step 2: Verify it exports payment function",
+      "Step 3: Verify H5 implementation mocks success/fail payment flow",
+      "Step 4: Verify mp-weixin implementation calls uni.requestPayment",
+      "Step 5: Take code snapshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "platform-adapter-storage",
+    "description": "Verify src/platform/storage.ts handles image/file upload for both targets",
+    "steps": [
+      "Step 1: Read src/platform/storage.ts file",
+      "Step 2: Verify it exports upload and download functions",
+      "Step 3: Verify H5 implementation uses IndexedDB for blob storage",
+      "Step 4: Verify H5 returns object URLs for preview",
+      "Step 5: Verify mp-weixin implementation calls wx.cloud.uploadFile",
+      "Step 6: Take code snapshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "cloud-functions",
+    "description": "Verify cloud function source code structure exists (not required to execute in H5)",
+    "steps": [
+      "Step 1: Check cloudfunctions/ directory exists",
+      "Step 2: Verify subdirectories: pet-crud, health-crud, health-cron, pay-order, pay-notify, user-init",
+      "Step 3: Verify each has index.js or index.ts entry point",
+      "Step 4: Verify functions are documented (comments explain purpose)",
+      "Step 5: Note: execution not required for H5 verification, but code must be present",
+      "Step 6: Take directory tree snapshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "state-management",
+    "description": "Verify Pinia stores exist for user, pet, and health state",
+    "steps": [
+      "Step 1: Check src/stores/ directory",
+      "Step 2: Verify user.ts store exists and exports useUserStore",
+      "Step 3: Verify pet.ts store exists and exports usePetStore",
+      "Step 4: Verify health.ts store exists and exports useHealthStore",
+      "Step 5: Verify stores use Pinia defineStore",
+      "Step 6: Verify persistence via uni.setStorageSync wrapper (not raw localStorage)",
+      "Step 7: Take code snapshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "Complete end-to-end flow: first-time user onboards pet and sets up first vaccine",
+    "steps": [
+      "Step 1: Clear storage, simulate first launch",
+      "Step 2: Accept privacy consent modal",
+      "Step 3: Log in via demo login (H5)",
+      "Step 4: Navigate to pet archive and create first pet",
+      "Step 5: Navigate to health section for that pet",
+      "Step 6: Add first vaccine record (狂犬疫苗)",
+      "Step 7: Verify vaccine appears in list with nextDate",
+      "Step 8: Navigate to health calendar",
+      "Step 9: Verify vaccine task appears on calendar",
+      "Step 10: Authorize subscribe messages for reminders",
+      "Step 11: Return to home page",
+      "Step 12: Verify pet card and upcoming task are displayed",
+      "Step 13: Take screenshot of complete home page showing user's first pet and health task"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "Multi-pet health management: user with 3 pets views unified calendar with all tasks",
+    "steps": [
+      "Step 1: Create 3 pets (2 cats, 1 dog)",
+      "Step 2: Add vaccine record for pet 1",
+      "Step 3: Add deworm record for pet 2",
+      "Step 4: Add medical record for pet 3",
+      "Step 5: Navigate to health calendar",
+      "Step 6: Verify calendar shows tasks from all 3 pets",
+      "Step 7: Verify tasks are color-coded or labeled by pet",
+      "Step 8: Tap a day with multiple tasks",
+      "Step 9: Verify bottom sheet shows tasks from different pets",
+      "Step 10: Complete one task from the sheet",
+      "Step 11: Verify task updates across all views",
+      "Step 12: Take screenshot of unified calendar with multi-pet tasks"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "VIP user journey: purchase VIP and access gated features",
+    "steps": [
+      "Step 1: Start as free user",
+      "Step 2: Navigate to VIP page from user profile",
+      "Step 3: Review VIP benefits",
+      "Step 4: Purchase VIP via mock payment (H5)",
+      "Step 5: Verify VIP badge appears on profile",
+      "Step 6: Verify vipExpireAt is set",
+      "Step 7: Attempt to add more than free-tier pet limit",
+      "Step 8: Verify VIP user can add unlimited pets",
+      "Step 9: Navigate to order history",
+      "Step 10: Verify VIP purchase order is recorded",
+      "Step 11: Take screenshot showing VIP status and benefits"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "Health reminder workflow: set up reminder, view in calendar, complete task",
+    "steps": [
+      "Step 1: Create pet and add vaccine record with nextDate in 7 days",
+      "Step 2: Authorize subscribe messages",
+      "Step 3: Navigate to health calendar",
+      "Step 4: Verify task appears with '7天后' indicator",
+      "Step 5: Fast-forward mock date to nextDate (or create task for today)",
+      "Step 6: Verify task moves to '今日待办' card",
+      "Step 7: Open task from calendar",
+      "Step 8: Complete task via '一键完成'",
+      "Step 9: Verify nextDate updates to next cycle",
+      "Step 10: Verify task disappears from today's list",
+      "Step 11: Verify new nextDate appears on calendar",
+      "Step 12: Take screenshots of before/after completion"
+    ],
+    "passes": false
+  },
+  {
+    "category": "album-feature",
+    "description": "Upload daily photos to pet album and verify grid view",
+    "steps": [
+      "Step 1: Navigate to pet detail page",
+      "Step 2: Open '相册' (album) section",
+      "Step 3: Tap upload photo button",
+      "Step 4: Select image file",
+      "Step 5: Verify photo is uploaded via platform.storage",
+      "Step 6: Verify photo appears in album grid",
+      "Step 7: Upload 5+ more photos",
+      "Step 8: Verify grid view displays all photos",
+      "Step 9: Verify photos are organized by date",
+      "Step 10: Take screenshot of album grid"
+    ],
+    "passes": false
+  },
+  {
+    "category": "album-feature",
+    "description": "Preview album photo and delete photo",
+    "steps": [
+      "Step 1: Open pet album with photos",
+      "Step 2: Tap on a photo thumbnail",
+      "Step 3: Verify photo preview opens (full screen or modal)",
+      "Step 4: Verify delete button is present in preview",
+      "Step 5: Tap delete button",
+      "Step 6: Verify confirmation dialog appears",
+      "Step 7: Confirm deletion",
+      "Step 8: Verify photo is removed from grid",
+      "Step 9: Take screenshot"
+    ],
+    "passes": false
+  }
+]
