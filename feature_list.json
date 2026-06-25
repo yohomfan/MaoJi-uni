@@ -11,7 +11,7 @@
       "Step 6: Verify tabBar section exists with exactly 4 tabs: 首页/档案/玩法/我的",
       "Step 7: Verify each tabBar item has correct pagePath, text, and iconPath"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -23,7 +23,7 @@
       "Step 4: Verify 'mp-weixin' section exists with appid field",
       "Step 5: Verify 'h5' section exists for H5 build target"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -34,7 +34,7 @@
       "Step 3: Verify zero matches found for both searches",
       "Step 4: Confirm routing is solely managed by pages.json"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -46,7 +46,7 @@
       "Step 4: Verify uView Plus is registered in main.ts or pages.json easycom",
       "Step 5: Check that components use u-* prefix (u-button, u-cell, etc.)"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -57,7 +57,7 @@
       "Step 3: Verify px is avoided for sizing (except borders/hairlines)",
       "Step 4: Confirm styles use mini-program-compatible units"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -68,7 +68,7 @@
       "Step 3: Verify weight chart component uses uCharts or qiun-data-charts",
       "Step 4: Confirm chart renders on <canvas> element, not DOM"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -80,7 +80,7 @@
       "Step 4: Verify conditional compilation (#ifdef MP-WEIXIN / #ifdef H5) or runtime flags are used",
       "Step 5: Grep components/stores to ensure they use platform adapter, never direct wx.* calls"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -92,7 +92,7 @@
       "Step 4: Verify all WeChat API calls are isolated in src/platform/",
       "Step 5: Confirm components use platform adapter for cloud functions, storage, etc."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "project-structure",
@@ -103,7 +103,7 @@
       "Step 3: Grep src/pages/ for 'localStorage' - should find zero",
       "Step 4: Verify storage operations use uni.setStorageSync wrappers in platform/storage.ts"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "build-verification",
