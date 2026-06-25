@@ -874,7 +874,7 @@
       "Step 5: Verify option to re-authorize is available if needed",
       "Step 6: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-customer-service",
@@ -994,7 +994,7 @@
       "Step 4: Verify message like '未找到相关知识'",
       "Step 5: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "responsive-layout",

@@ -1,0 +1,179 @@
+[
+  {
+    "category": "health-weight",
+    "description": "View weight chart visualization (line chart over time)",
+    "steps": [
+      "Step 1: Create 10+ weight entries spanning several months",
+      "Step 2: Open weight section",
+      "Step 3: Verify line chart is displayed showing weight over time",
+      "Step 4: Verify chart uses uCharts or qiun-data-charts (canvas-based)",
+      "Step 5: Verify X-axis shows dates, Y-axis shows weight",
+      "Step 6: Verify chart is interactive (can tap points to see details)",
+      "Step 7: Take screenshot of weight chart"
+    ],
+    "passes": false
+  },
+  {
+    "category": "health-weight",
+    "description": "Verify weight chart shows healthy band overlay based on breed standards",
+    "steps": [
+      "Step 1: Create pet with specific breed that has known weight range",
+      "Step 2: Add weight entries",
+      "Step 3: Open weight chart",
+      "Step 4: Verify chart shows healthy weight band/range overlay",
+      "Step 5: Verify band is based on breed standards from breed wiki",
+      "Step 6: Verify pet's weight line shows relative to healthy range",
+      "Step 7: Take screenshot showing band overlay"
+    ],
+    "passes": false
+  },
+  {
+    "category": "user-subscribe",
+    "description": "Verify idempotent re-prompt logic for subscribe message (don't spam user)",
+    "steps": [
+      "Step 1: Authorize subscribe messages",
+      "Step 2: Navigate away and return to reminder settings",
+      "Step 3: Verify authorization prompt does NOT reappear immediately",
+      "Step 4: Verify status shows 'already authorized'",
+      "Step 5: Verify option to re-authorize is available if needed",
+      "Step 6: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "reminder-logic",
+    "description": "Verify health reminder pipeline simulates 7/3/1-day window for upcoming tasks",
+    "steps": [
+      "Step 1: Create health record with nextDate = 7 days from now",
+      "Step 2: Open health calendar",
+      "Step 3: Verify task appears in 'upcoming' section with '7天后' indicator",
+      "Step 4: Create record with nextDate = 3 days from now",
+      "Step 5: Verify task shows '3天后' with higher urgency styling",
+      "Step 6: Create record with nextDate = 1 day from now",
+      "Step 7: Verify task shows '明天' with urgent styling",
+      "Step 8: Take screenshot showing tiered reminder urgency"
+    ],
+    "passes": false
+  },
+  {
+    "category": "empty-states",
+    "description": "Verify empty state when no knowledge search results",
+    "steps": [
+      "Step 1: Open knowledge library",
+      "Step 2: Search for nonsense keyword that returns no results",
+      "Step 3: Verify empty search results state is shown",
+      "Step 4: Verify message like '未找到相关知识'",
+      "Step 5: Take screenshot"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "Complete end-to-end flow: first-time user onboards pet and sets up first vaccine",
+    "steps": [
+      "Step 1: Clear storage, simulate first launch",
+      "Step 2: Accept privacy consent modal",
+      "Step 3: Log in via demo login (H5)",
+      "Step 4: Navigate to pet archive and create first pet",
+      "Step 5: Navigate to health section for that pet",
+      "Step 6: Add first vaccine record (狂犬疫苗)",
+      "Step 7: Verify vaccine appears in list with nextDate",
+      "Step 8: Navigate to health calendar",
+      "Step 9: Verify vaccine task appears on calendar",
+      "Step 10: Authorize subscribe messages for reminders",
+      "Step 11: Return to home page",
+      "Step 12: Verify pet card and upcoming task are displayed",
+      "Step 13: Take screenshot of complete home page showing user's first pet and health task"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "Multi-pet health management: user with 3 pets views unified calendar with all tasks",
+    "steps": [
+      "Step 1: Create 3 pets (2 cats, 1 dog)",
+      "Step 2: Add vaccine record for pet 1",
+      "Step 3: Add deworm record for pet 2",
+      "Step 4: Add medical record for pet 3",
+      "Step 5: Navigate to health calendar",
+      "Step 6: Verify calendar shows tasks from all 3 pets",
+      "Step 7: Verify tasks are color-coded or labeled by pet",
+      "Step 8: Tap a day with multiple tasks",
+      "Step 9: Verify bottom sheet shows tasks from different pets",
+      "Step 10: Complete one task from the sheet",
+      "Step 11: Verify task updates across all views",
+      "Step 12: Take screenshot of unified calendar with multi-pet tasks"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "VIP user journey: purchase VIP and access gated features",
+    "steps": [
+      "Step 1: Start as free user",
+      "Step 2: Navigate to VIP page from user profile",
+      "Step 3: Review VIP benefits",
+      "Step 4: Purchase VIP via mock payment (H5)",
+      "Step 5: Verify VIP badge appears on profile",
+      "Step 6: Verify vipExpireAt is set",
+      "Step 7: Attempt to add more than free-tier pet limit",
+      "Step 8: Verify VIP user can add unlimited pets",
+      "Step 9: Navigate to order history",
+      "Step 10: Verify VIP purchase order is recorded",
+      "Step 11: Take screenshot showing VIP status and benefits"
+    ],
+    "passes": false
+  },
+  {
+    "category": "comprehensive-flow",
+    "description": "Health reminder workflow: set up reminder, view in calendar, complete task",
+    "steps": [
+      "Step 1: Create pet and add vaccine record with nextDate in 7 days",
+      "Step 2: Authorize subscribe messages",
+      "Step 3: Navigate to health calendar",
+      "Step 4: Verify task appears with '7天后' indicator",
+      "Step 5: Fast-forward mock date to nextDate (or create task for today)",
+      "Step 6: Verify task moves to '今日待办' card",
+      "Step 7: Open task from calendar",
+      "Step 8: Complete task via '一键完成'",
+      "Step 9: Verify nextDate updates to next cycle",
+      "Step 10: Verify task disappears from today's list",
+      "Step 11: Verify new nextDate appears on calendar",
+      "Step 12: Take screenshots of before/after completion"
+    ],
+    "passes": false
+  },
+  {
+    "category": "album-feature",
+    "description": "Upload daily photos to pet album and verify grid view",
+    "steps": [
+      "Step 1: Navigate to pet detail page",
+      "Step 2: Open '相册' (album) section",
+      "Step 3: Tap upload photo button",
+      "Step 4: Select image file",
+      "Step 5: Verify photo is uploaded via platform.storage",
+      "Step 6: Verify photo appears in album grid",
+      "Step 7: Upload 5+ more photos",
+      "Step 8: Verify grid view displays all photos",
+      "Step 9: Verify photos are organized by date",
+      "Step 10: Take screenshot of album grid"
+    ],
+    "passes": false
+  },
+  {
+    "category": "album-feature",
+    "description": "Preview album photo and delete photo",
+    "steps": [
+      "Step 1: Open pet album with photos",
+      "Step 2: Tap on a photo thumbnail",
+      "Step 3: Verify photo preview opens (full screen or modal)",
+      "Step 4: Verify delete button is present in preview",
+      "Step 5: Tap delete button",
+      "Step 6: Verify confirmation dialog appears",
+      "Step 7: Confirm deletion",
+      "Step 8: Verify photo is removed from grid",
+      "Step 9: Take screenshot"
+    ],
+    "passes": false
+  }
+]
