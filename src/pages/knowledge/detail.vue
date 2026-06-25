@@ -23,7 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onLoad } from '@dcloudio/uni-app'
+import { ref, computed } from 'vue'
+import { onLoad } from '@dcloudio/uni-app'
 import knowledgeData from '@/static/knowledge-articles.json'
 
 interface KnowledgeArticle {
