@@ -63,6 +63,11 @@
         <u-icon name="chart-fill" size="40" color="#FFA726"></u-icon>
         <text class="action-label">成长记录</text>
       </view>
+
+      <view class="action-card" @click="goToAlbum">
+        <u-icon name="photo-fill" size="40" color="#AB47BC"></u-icon>
+        <text class="action-label">相册</text>
+      </view>
     </view>
 
     <!-- Edit Button -->
@@ -176,6 +181,12 @@ function editPet() {
 function goToHealth(type: string) {
   uni.navigateTo({
     url: `/pages/health/${type}?petId=${petId}`
+  })
+}
+
+function goToAlbum() {
+  uni.navigateTo({
+    url: `/pages/pet/album?id=${petId}`
   })
 }
 </script>

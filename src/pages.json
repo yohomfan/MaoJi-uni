@@ -40,6 +40,14 @@
       }
     },
     {
+      "path": "pages/pet/album",
+      "style": {
+        "navigationBarTitleText": "相册",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
       "path": "pages/health/vaccine",
       "style": {
         "navigationBarTitleText": "疫苗管理",
