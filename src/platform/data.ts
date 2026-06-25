@@ -41,17 +41,99 @@ function initDemoData() {
     createTime: Date.now()
   }
 
+  // Seed demo weight records
+  const now = Date.now()
+  const oneDay = 24 * 60 * 60 * 1000
+  const oneMonth = 30 * oneDay
+
+  const demoWeightRecords: HealthRecord[] = [
+    {
+      id: 'weight_1',
+      petId: 'demo_pet_1',
+      type: 'weight',
+      name: '体重记录',
+      date: now - 6 * oneMonth,
+      weightValue: 3.8,
+      note: '刚领养回家'
+    },
+    {
+      id: 'weight_2',
+      petId: 'demo_pet_1',
+      type: 'weight',
+      name: '体重记录',
+      date: now - 5 * oneMonth,
+      weightValue: 4.0,
+      note: ''
+    },
+    {
+      id: 'weight_3',
+      petId: 'demo_pet_1',
+      type: 'weight',
+      name: '体重记录',
+      date: now - 4 * oneMonth,
+      weightValue: 4.2,
+      note: ''
+    },
+    {
+      id: 'weight_4',
+      petId: 'demo_pet_1',
+      type: 'weight',
+      name: '体重记录',
+      date: now - 3 * oneMonth,
+      weightValue: 4.3,
+      note: ''
+    },
+    {
+      id: 'weight_5',
+      petId: 'demo_pet_1',
+      type: 'weight',
+      name: '体重记录',
+      date: now - 2 * oneMonth,
+      weightValue: 4.4,
+      note: ''
+    },
+    {
+      id: 'weight_6',
+      petId: 'demo_pet_1',
+      type: 'weight',
+      name: '体重记录',
+      date: now - oneMonth,
+      weightValue: 4.5,
+      note: ''
+    },
+    {
+      id: 'weight_7',
+      petId: 'demo_pet_1',
+      type: 'weight',
+      name: '体重记录',
+      date: now - 15 * oneDay,
+      weightValue: 4.5,
+      note: '体重稳定'
+    }
+  ]
+
   uni.setStorageSync('pets', JSON.stringify([demoPet]))
-  uni.setStorageSync('health_records', JSON.stringify([]))
+  uni.setStorageSync('health_records', JSON.stringify(demoWeightRecords))
   uni.setStorageSync('orders', JSON.stringify([]))
   uni.setStorageSync('demo_data_initialized', true)
 }
 
-initDemoData()
+// Ensure demo data is initialized before any operation
+let demoDataInitialized = false
+function ensureDemoData() {
+  if (demoDataInitialized) return
+  try {
+    initDemoData()
+    demoDataInitialized = true
+  } catch (e) {
+    console.error('Failed to init demo data:', e)
+  }
+}
 
 // Pet CRUD
 export async function getPets(): Promise<ApiResponse<Pet[]>> {
   try {
+    ensureDemoData()
     const pets = JSON.parse(uni.getStorageSync('pets') || '[]')
     // Filter out soft-deleted pets
     const activePets = pets.filter((p: Pet) => !p.deletedAt)
@@ -63,6 +145,7 @@ export async function getPets(): Promise<ApiResponse<Pet[]>> {
 
 export async function getPetById(id: string): Promise<ApiResponse<Pet>> {
   try {
+    ensureDemoData()
     const pets = JSON.parse(uni.getStorageSync('pets') || '[]')
     const pet = pets.find((p: Pet) => p.id === id && !p.deletedAt)
     if (pet) {
@@ -124,6 +207,7 @@ export async function deletePet(id: string): Promise<ApiResponse<boolean>> {
 // Health Record CRUD
 export async function getHealthRecords(petId: string): Promise<ApiResponse<HealthRecord[]>> {
   try {
+    ensureDemoData()
     const records = JSON.parse(uni.getStorageSync('health_records') || '[]')
     const petRecords = records.filter((r: HealthRecord) => r.petId === petId)
     return { success: true, data: petRecords }

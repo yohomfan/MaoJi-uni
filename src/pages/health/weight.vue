@@ -39,13 +39,10 @@
         </view>
       </view>
 
-      <!-- Chart Placeholder -->
+      <!-- Weight Chart -->
       <view class="chart-section">
         <view class="section-title">体重曲线</view>
-        <view class="chart-placeholder">
-          <text class="chart-text">📊</text>
-          <text class="chart-desc">图表功能即将上线</text>
-        </view>
+        <WeightChart :chart-data="weightRecords" :healthy-range="healthyWeightRange" />
       </view>
     </view>
 
@@ -116,6 +113,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useHealthStore } from '@/stores/health'
 import { usePetStore } from '@/stores/pet'
+import WeightChart from '@/components/WeightChart.vue'
 
 const healthStore = useHealthStore()
 const petStore = usePetStore()
@@ -140,6 +138,20 @@ const weightRecords = computed(() => {
   if (!petStore.currentPet) return []
   return healthStore.recordsByType(petStore.currentPet.id, 'weight')
     .sort((a, b) => (b.date || 0) - (a.date || 0))
+})
+
+const healthyWeightRange = computed(() => {
+  if (!petStore.currentPet || !petStore.currentPet.breed) return undefined
+
+  // TODO: Get breed weight range from breed wiki data
+  // For now, use a simple calculation based on current weight
+  const currentWeight = petStore.currentPet.weight || 5
+
+  // Healthy range is roughly ±15% of current weight as a placeholder
+  return {
+    min: Math.max(currentWeight * 0.85, 0.5),
+    max: currentWeight * 1.15
+  }
 })
 
 function formatDate(timestamp: number): string {
@@ -358,24 +370,10 @@ async function handleSubmit() {
 }
 
 .chart-section {
-  .chart-placeholder {
-    background: $bg-primary;
-    border-radius: $radius-md;
-    padding: 120rpx $spacing-md;
-    text-align: center;
-    box-shadow: $shadow-sm;
-
-    .chart-text {
-      font-size: 120rpx;
-      display: block;
-      margin-bottom: $spacing-md;
-    }
-
-    .chart-desc {
-      font-size: $font-md;
-      color: $text-placeholder;
-    }
-  }
+  background: $bg-primary;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  box-shadow: $shadow-sm;
 }
 
 .empty-state {
