@@ -955,7 +955,7 @@
       "Step 6: Verify screens are not empty on first load",
       "Step 7: Take screenshot showing seeded data"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "empty-states",
@@ -982,7 +982,7 @@
       "Step 5: Verify '添加体重' call-to-action is present",
       "Step 6: Take screenshot"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "empty-states",
@@ -1007,7 +1007,7 @@
       "Step 5: Verify touch targets are >= 44px (~88rpx)",
       "Step 6: Take screenshots at different pages showing responsive layout"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "ui-design",
@@ -1019,7 +1019,7 @@
       "Step 4: Check accent colors on cards and CTAs",
       "Step 5: Take screenshot showing brand color usage"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "ui-design",
@@ -1031,7 +1031,7 @@
       "Step 4: Verify spacing between cards is generous (not cramped)",
       "Step 5: Take screenshot showing card design"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "ui-design",
@@ -1044,7 +1044,7 @@
       "Step 5: Verify empty states have encouraging copy",
       "Step 6: Take screenshots of various text elements"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "platform-adapter-data",
