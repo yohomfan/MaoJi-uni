@@ -733,7 +733,7 @@
       "Step 6: Verify login state persists across page refresh",
       "Step 7: Take screenshot showing logged-in state"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-profile",
@@ -861,7 +861,7 @@
       "Step 7: Verify consent is recorded in platform adapter",
       "Step 8: Take screenshot of authorization flow"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "user-subscribe",
@@ -902,7 +902,7 @@
       "Step 6: Capture unit test output as evidence",
       "Step 7: Verify all tests pass"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "reminder-logic",
@@ -914,7 +914,7 @@
       "Step 4: Capture test output",
       "Step 5: Verify all tests pass"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "reminder-logic",
@@ -926,7 +926,7 @@
       "Step 4: Capture test output",
       "Step 5: Verify all tests pass"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "reminder-logic",
