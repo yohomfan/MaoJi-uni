@@ -116,7 +116,7 @@
       "Step 5: Take screenshot of running H5 app as evidence",
       "Step 6: Verify no console errors in browser"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "build-verification",
@@ -129,7 +129,7 @@
       "Step 5: Capture build output log as evidence",
       "Step 6: Confirm no TypeScript errors, no compilation warnings"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "navigation",
@@ -143,7 +143,7 @@
       "Step 6: Take screenshot showing all 4 tabs",
       "Step 7: Verify active tab is highlighted"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "home-page",
@@ -157,7 +157,7 @@
       "Step 6: Take screenshot of complete home page",
       "Step 7: Verify layout is clean and responsive"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "home-page",
@@ -185,7 +185,7 @@
       "Step 6: Verify NO AI-related interactive features exist",
       "Step 7: Take screenshot of placeholder page"
     ],
-    "passes": true
+    "passes": false
   },
   {
     "category": "pet-archive",
