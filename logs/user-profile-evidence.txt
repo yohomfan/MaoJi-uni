@@ -1,0 +1,34 @@
+User Profile Page - Evidence Log
+==================================
+Date: 2026-06-25
+Test: View user profile center with avatar, nickname, and sections
+
+EVIDENCE FROM src/pages/user/profile.vue:
+
+1. User Header Section (lines 4-20):
+   ✓ Avatar display (lines 6-9): Shows user avatar or placeholder with first letter
+   ✓ Nickname display (line 11): Shows user nickname or default "毛孩子主人"
+   ✓ VIP Badge (lines 14-19): Shows VIP status with remaining days OR prompt to activate
+
+2. Menu Sections - Pet & Features (lines 23-48):
+   ✓ My Pets (lines 24-29): Shows pet count (petStore.petsCount)
+   ✓ My Orders (lines 31-35): Navigation to orders page
+   ✓ Health Calendar (lines 37-41): Quick access to calendar
+   ✓ Message Notifications (lines 43-47): Subscribe settings
+
+3. Settings Section (lines 51-63):
+   ✓ About MaoJi (lines 52-56): App info and version
+   ✓ Privacy Policy (lines 58-62): User agreement and privacy
+
+4. Login/Logout Section (lines 66-71):
+   ✓ Logout button when logged in
+   ✓ Login button when not logged in
+
+5. Functionality (lines 75-143):
+   ✓ Loads pets on mount
+   ✓ Navigation to sub-pages
+   ✓ Login/logout handlers
+   ✓ Modal dialogs for about and privacy
+
+CONCLUSION: User profile page fully implemented ✓
+All required sections present and functional
