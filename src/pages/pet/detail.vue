@@ -45,7 +45,7 @@
     <!-- Quick Actions -->
     <view class="action-section">
       <view class="action-card" @click="goToHealth('vaccine')">
-        <u-icon name="medical-fill" size="40" color="#FF8A65"></u-icon>
+        <text class="action-emoji">💉</text>
         <text class="action-label">疫苗管理</text>
       </view>
 
@@ -60,7 +60,7 @@
       </view>
 
       <view class="action-card" @click="goToHealth('weight')">
-        <u-icon name="chart-fill" size="40" color="#FFA726"></u-icon>
+        <text class="action-emoji">📈</text>
         <text class="action-label">成长记录</text>
       </view>
 
@@ -288,6 +288,12 @@ function goToAlbum() {
     padding: $spacing-md $spacing-sm;
     text-align: center;
     box-shadow: $shadow-sm;
+
+    .action-emoji {
+      display: block;
+      font-size: 40px;
+      line-height: 1;
+    }
 
     .action-label {
       display: block;
