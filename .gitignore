@@ -40,3 +40,6 @@ coverage/
 
 # Harness specific
 .harness/
+
+# WeChat devtool private config
+project.private.config.json
