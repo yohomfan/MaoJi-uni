@@ -233,7 +233,7 @@ const faqs = ref<FAQ[]>([
   {
     category: '其他',
     question: 'AI写真功能在哪里？',
-    answer: 'AI写真功能正在开发中，将在后续版本推出。请在"玩法"标签页关注更新。'
+    answer: 'AI写真功能正在开发中，将在后续版本推出，敬请期待。'
   }
 ])
 

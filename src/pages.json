@@ -198,12 +198,6 @@
         "text": "档案"
       },
       {
-        "pagePath": "pages-ai/placeholder",
-        "iconPath": "static/tabbar/fun.png",
-        "selectedIconPath": "static/tabbar/fun-active.png",
-        "text": "玩法"
-      },
-      {
         "pagePath": "pages/user/profile",
         "iconPath": "static/tabbar/user.png",
         "selectedIconPath": "static/tabbar/user-active.png",
