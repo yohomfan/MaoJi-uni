@@ -50,15 +50,6 @@
       "minified": true
     },
     "usingComponents": true,
-    "permission": {
-      "scope.userLocation": {
-        "desc": "用于获取您的位置信息，提供附近宠物医院推荐"
-      }
-    },
-    "requiredPrivateInfos": [
-      "chooseImage",
-      "chooseFile"
-    ],
     "cloud": true,
     "cloudfunctionRoot": "cloudfunctions/"
   },

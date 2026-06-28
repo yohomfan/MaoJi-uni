@@ -9,14 +9,6 @@
         </view>
       </view>
       <text class="user-nickname">{{ userStore.user?.nickname || '毛孩子主人' }}</text>
-
-      <!-- VIP Badge -->
-      <view v-if="userStore.isVip" class="vip-badge">
-        <text>VIP会员 · 剩余{{ userStore.vipDaysRemaining }}天</text>
-      </view>
-      <view v-else class="vip-action" @click="navigateTo('/pages/user/vip')">
-        <text>开通健康会员 ></text>
-      </view>
     </view>
 
     <!-- Menu Items -->
@@ -25,25 +17,19 @@
         <text class="menu-icon">🐾</text>
         <text class="menu-label">我的宠物</text>
         <text class="menu-value">{{ petStore.petsCount }}</text>
-        <text class="menu-arrow">></text>
-      </view>
-
-      <view class="menu-item" @click="navigateTo('/pages/user/orders')">
-        <text class="menu-icon">📦</text>
-        <text class="menu-label">我的订单</text>
-        <text class="menu-arrow">></text>
+        <text class="menu-arrow">›</text>
       </view>
 
       <view class="menu-item" @click="navigateTo('/pages/health/calendar')">
         <text class="menu-icon">📅</text>
         <text class="menu-label">健康日历</text>
-        <text class="menu-arrow">></text>
+        <text class="menu-arrow">›</text>
       </view>
 
       <view class="menu-item" @click="showSubscribeSettings">
         <text class="menu-icon">🔔</text>
         <text class="menu-label">消息提醒</text>
-        <text class="menu-arrow">></text>
+        <text class="menu-arrow">›</text>
       </view>
     </view>
 
@@ -52,13 +38,13 @@
       <view class="menu-item" @click="showAbout">
         <text class="menu-icon">ℹ️</text>
         <text class="menu-label">关于毛叽</text>
-        <text class="menu-arrow">></text>
+        <text class="menu-arrow">›</text>
       </view>
 
       <view class="menu-item" @click="showPrivacy">
         <text class="menu-icon">🔒</text>
         <text class="menu-label">隐私协议</text>
-        <text class="menu-arrow">></text>
+        <text class="menu-arrow">›</text>
       </view>
     </view>
 
